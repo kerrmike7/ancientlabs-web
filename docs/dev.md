@@ -15,7 +15,7 @@ npm install
    - `NEXT_PUBLIC_CONTACT_ENDPOINT`
    - `NEXT_PUBLIC_WEB3FORMS_KEY`
 
-> These values are required for Calendly CTAs and the Web3Forms-powered contact form. The `.env.local` file is gitignored so you can use real keys during development.
+> A tracked `.env.local.example` lives in the repo—update it whenever new env vars are introduced. These values are required for Calendly CTAs and the Web3Forms-powered contact form. The `.env.local` file is gitignored so you can use real keys during development.
 
 ### Vercel Deployment
 **IMPORTANT**: These environment variables MUST be set in Vercel for BOTH Preview and Production environments:

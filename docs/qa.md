@@ -26,8 +26,8 @@ Before merging `dev` → `main`:
 - [ ] Merge `dev` → `main` after all checks pass
 
 ## 2026-01-01 — Local QA Pass
-- [x] Calendly CTAs — Header/hero/CTA band buttons across `/`, `/services`, `/payments`, `/process`, `/about`, `/insights`, and `/contact` resolve to `https://calendly.com/ancientlabs/ai-readiness`; CTA band secondary links point to `/contact#architecture-review`.
-- [x] Calendly fallback — Restarted without `NEXT_PUBLIC_CALENDLY_URL`; header + hero + CTA band buttons render disabled with `title="Calendly not configured"` and contact page shows static label instead of link.
+- [x] Calendly CTAs — Header/hero/CTA band buttons across `/`, `/services`, `/payments`, `/process`, `/about`, `/insights`, and `/contact` resolve to the configured `NEXT_PUBLIC_CALENDLY_URL`; CTA band secondary links still route to `/contact#architecture-review`.
+- [x] Calendly fallback — Restarted without `NEXT_PUBLIC_CALENDLY_URL`; header + hero + CTA band buttons render disabled with `title="Calendly not configured"` and the contact page shows a static label instead of a link.
 - [x] Contact form (Web3Forms) — Submitted happy path (httpbin endpoint) to reach success state, reset via “Send another message,” then forced a network failure to surface the inline error alert while inputs stayed populated.
-- [x] Mobile navigation — Hamburger opens body-locking overlay, CTA buttons within overlay mirror env config, and selecting a route closes the panel automatically.
+- [x] Mobile navigation — Hamburger opens body-locking overlay, CTA buttons within the overlay mirror env configuration, and selecting a route closes the panel automatically.
 - [x] Metadata/OG — `metadataBase` stays `https://ancientlabs.co`; `og:url`, canonical references, and Twitter card assets resolve to the primary domain, and `og:image` continues to be served from `/opengraph-image` (Next.js serves it from the current origin in dev, but Preview/Prod inherit the canonical domain).
