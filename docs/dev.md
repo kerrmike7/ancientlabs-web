@@ -5,6 +5,13 @@
 npm install
 ```
 
+### Approved V1.1 dependencies
+The following dependencies were added in V1.1 for the essay system:
+- `gray-matter` — Markdown frontmatter parsing
+- `remark` / `remark-html` — Markdown rendering
+
+These are approved as core infrastructure for the canonical essay publishing system.
+
 ## 2. Environment variables
 1. Copy the example file:
    ```bash

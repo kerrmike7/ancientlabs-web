@@ -16,6 +16,7 @@ import { Badge } from "@/components/Badge";
 import { SectionHeader } from "@/components/SectionHeader";
 import { runtimeConfig } from "@/lib/runtimeConfig";
 import { Logo } from "@/components/Logo";
+import { siteCopy } from "@/content/siteCopy";
 
 export const metadata: Metadata = {
   title: "Mid-Market Data & AI Studio",
@@ -25,35 +26,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const { calendlyUrl } = runtimeConfig;
-  const trustItems = [
-    { label: "Background", value: "Engineering leadership from high-scale fintechs." },
-    { label: "Proof", value: "$1B+ in payments volume processed." },
-    { label: "Engagements", value: "2-week sprints. Systems, not slides." },
-  ];
-
-  const heroBullets = [
-    "Stack-agnostic data systems that preserve optionality.",
-    "Payments-grade reliability across reconciliation and ledgers.",
-    "Code shipped to your repo in 2-week sprints.",
-  ];
-
-  const notAFit = [
-    {
-      title: "A creative agency for chatbots.",
-      copy:
-        "We don't build gimmicks. We ship the data plumbing that makes AI reliable.",
-    },
-    {
-      title: "A single-vendor implementation shop.",
-      copy:
-        "No Palantir-only reselling here. We pick the right boring tech for your scale.",
-    },
-    {
-      title: "Staff augmentation for maintenance tickets.",
-      copy:
-        "You get accountable sprints with defined outcomes, not open-ended hourly billing.",
-    },
-  ];
+  const { home } = siteCopy;
 
   return (
     <div className="flex flex-col">
@@ -70,21 +43,18 @@ export default function Home() {
                 {siteConfig.name}
               </span>
             </div>
-            <Badge>Mid-Market Data & AI Studio</Badge>
+            <Badge>{home.hero.badge}</Badge>
           </div>
           <h1 className="text-4xl font-semibold tracking-tight text-text-primary sm:text-6xl">
-            AI-Ready Data Foundations for the Mid-Market.
+            {home.hero.headline}
           </h1>
           <div className="space-y-3 text-xl text-text-secondary">
-            <p>
-              We build stack-agnostic data systems that preserve optionality
-              and avoid vendor lock-in—especially when data and money move
-              together.
-            </p>
-            <p>No chatbots, no generic consulting—just shipped infrastructure.</p>
+            {home.hero.subheadline.map((text, i) => (
+              <p key={i}>{text}</p>
+            ))}
           </div>
           <ul className="space-y-3">
-            {heroBullets.map((item) => (
+            {home.hero.bullets.map((item) => (
               <li key={item} className="flex items-start gap-3 text-base text-text-secondary">
                 <span className="mt-2 h-2 w-2 rounded-full bg-accent-primary" />
                 <span>{item}</span>
@@ -118,33 +88,30 @@ export default function Home() {
       </Section>
 
       {/* Fast Trust Block */}
-      <FastTrustBlock items={trustItems} />
+      <FastTrustBlock items={home.trust.items} />
 
       {/* Value Prop Section */}
       <Section>
         <SectionHeader
-          eyebrow="What we do"
-          title="Systems, not advice."
-          description="Clear scope, shared repos, and infrastructure that your team can scale."
+          eyebrow={home.valueProp.eyebrow}
+          title={home.valueProp.title}
+          description={home.valueProp.description}
         />
         <div className="mt-12 grid gap-8 md:grid-cols-3">
-          <Card title="AI Foundations" icon={<Database className="h-6 w-6" />}>
-            Clean data pipelines ready for LLM context windows. Structured data
-            models that keep you vendor-agnostic.
+          <Card title={home.valueProp.cards[0].title} icon={<Database className="h-6 w-6" />}>
+            {home.valueProp.cards[0].copy}
           </Card>
           <Card
-            title="Financial Infrastructure"
+            title={home.valueProp.cards[1].title}
             icon={<CreditCard className="h-6 w-6" />}
           >
-            Reconciliation and ledgering for complex flows. Automated matching of
-            payouts to your internal source of truth.
+            {home.valueProp.cards[1].copy}
           </Card>
           <Card
-            title="Strategic Optionality"
+            title={home.valueProp.cards[2].title}
             icon={<LayoutTemplate className="h-6 w-6" />}
           >
-            Own your data so you can switch models or vendors anytime. No black
-            boxes, no lock-in.
+            {home.valueProp.cards[2].copy}
           </Card>
         </div>
       </Section>
@@ -152,12 +119,12 @@ export default function Home() {
       {/* Anti-Positioning Section */}
       <Section className="bg-bg-subtle">
         <SectionHeader
-          eyebrow="Positioning"
-          title="Who we are not."
-          description="Saying no keeps engagements tight and outcomes honest."
+          eyebrow={home.notAFit.eyebrow}
+          title={home.notAFit.title}
+          description={home.notAFit.description}
         />
         <div className="mt-12 space-y-6">
-          {notAFit.map((item) => (
+          {home.notAFit.items.map((item) => (
             <div key={item.title} className="flex gap-4">
               <XCircle className="h-6 w-6 shrink-0 text-text-tertiary" />
               <div>
@@ -171,7 +138,7 @@ export default function Home() {
 
       {/* CTA Band */}
       <CTABand
-        headline="Stop guessing. Start building."
+        headline={home.ctaBand.headline}
         calendlyUrl={calendlyUrl}
       />
     </div>

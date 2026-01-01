@@ -7,6 +7,7 @@ import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ArrowRightLeft, ScrollText, BarChart3 } from "lucide-react";
 import { runtimeConfig } from "@/lib/runtimeConfig";
+import { siteCopy } from "@/content/siteCopy";
 
 export const metadata: Metadata = {
   title: "Payments Infrastructure",
@@ -16,62 +17,55 @@ export const metadata: Metadata = {
 
 export default function PaymentsPage() {
   const { calendlyUrl } = runtimeConfig;
-  const trustItems = [
-    { label: "Volume", value: "$1B+ processed for regulated marketplaces." },
-    { label: "Compliance", value: "PCI-aware architecture patterns & audit logs." },
-    { label: "Reliability", value: "Redundancy designed for finance and ops teams." },
-  ];
+  const { payments } = siteCopy;
 
   return (
     <>
       <Section className="pb-12">
         <Container className="max-w-4xl">
           <SectionHeader
-            eyebrow="Payments"
-            title="Financial infrastructure for scale."
-            description="Ledgering, reconciliation, and ops tooling for marketplaces, fintechs, and regulated platforms."
+            eyebrow={payments.hero.eyebrow}
+            title={payments.hero.title}
+            description={payments.hero.description}
           />
         </Container>
       </Section>
 
-      <FastTrustBlock items={trustItems} />
+      <FastTrustBlock items={payments.trust.items} />
 
       <Section>
         <Container>
           <SectionHeader
-            eyebrow="Capabilities"
-            title="Built for accuracy."
-            description="The boring infrastructure that keeps money and data in sync."
+            eyebrow={payments.capabilities.eyebrow}
+            title={payments.capabilities.title}
+            description={payments.capabilities.description}
             className="mb-12"
           />
           <div className="grid gap-8 md:grid-cols-3">
             <Card
-              title="Reconciliation"
+              title={payments.capabilities.cards[0].title}
               icon={<ArrowRightLeft className="h-6 w-6" />}
             >
-              Automated matching of gateway payouts (Stripe/Adyen) to your internal
-              databases. Catch penny gaps before they become million-dollar holes.
+              {payments.capabilities.cards[0].copy}
             </Card>
             <Card
-              title="Double-entry ledgering"
+              title={payments.capabilities.cards[1].title}
               icon={<ScrollText className="h-6 w-6" />}
             >
-              Immutable journal design tailored to your products. We implement
-              double-entry systems that survive audits.
+              {payments.capabilities.cards[1].copy}
             </Card>
             <Card
-              title="Ops tooling"
+              title={payments.capabilities.cards[2].title}
               icon={<BarChart3 className="h-6 w-6" />}
             >
-              Dashboards for finance teams, not just devs—dispute workflows,
-              refunds, and monitoring built on your source of truth.
+              {payments.capabilities.cards[2].copy}
             </Card>
           </div>
         </Container>
       </Section>
       <CTABand
-        headline="Need regulated-grade infrastructure?"
-        description="Book an AI Readiness Call or request an Architecture Review focused on your payments stack."
+        headline={payments.ctaBand.headline}
+        description={payments.ctaBand.description}
         calendlyUrl={calendlyUrl}
       />
     </>

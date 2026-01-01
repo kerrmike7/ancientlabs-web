@@ -7,6 +7,7 @@ import { Badge } from "@/components/Badge";
 import { Card } from "@/components/Card";
 import { Check, XCircle } from "lucide-react";
 import { runtimeConfig } from "@/lib/runtimeConfig";
+import { siteCopy } from "@/content/siteCopy";
 
 export const metadata: Metadata = {
   title: "Services & Engagement Models",
@@ -16,45 +17,16 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   const { calendlyUrl } = runtimeConfig;
-  const offers = [
-    {
-      duration: "2 Weeks",
-      title: "The Foundation Sprint",
-      description:
-        "For messy data environments that need a reset before layering AI.",
-      bullets: [
-        "Comprehensive data audit & schema cleanup",
-        "Initial ETL/ELT pipeline deployment",
-        "Documentation for your engineering team",
-      ],
-    },
-    {
-      duration: "1 Week",
-      title: "Architecture Review",
-      description:
-        "Validation before big spend—pressure-test your stack and roadmap.",
-      bullets: [
-        "Stack selection + buy vs. build memo",
-        "Security & compliance assessment",
-        "Executive-ready roadmap presentation",
-      ],
-    },
-  ];
-
-  const notAFit = [
-    "Teams seeking long-term staff augmentation or maintenance.",
-    "Pre-seed startups without validated product/data volume.",
-    "Marketing-led \"AI buzz\" projects with no infra outcomes.",
-  ];
+  const { services } = siteCopy;
 
   return (
     <>
       <Section className="pb-12">
         <Container>
           <SectionHeader
-            eyebrow="Services"
-            title="Engagement models built for speed."
-            description="Fixed-scope sprints with tangible deliverables. No open-ended consulting."
+            eyebrow={services.hero.eyebrow}
+            title={services.hero.title}
+            description={services.hero.description}
           />
         </Container>
       </Section>
@@ -62,7 +34,7 @@ export default function ServicesPage() {
       <Section className="pt-0">
         <Container>
           <div className="grid gap-8 md:grid-cols-2">
-            {offers.map((offer) => (
+            {services.offers.map((offer) => (
               <Card
                 key={offer.title}
                 title={offer.title}
@@ -87,13 +59,13 @@ export default function ServicesPage() {
       <Section className="bg-bg-subtle">
         <Container>
           <SectionHeader
-            eyebrow="Positioning"
-            title="Who is this not for?"
-            description="Clarity about fit keeps engagements tight."
+            eyebrow={services.notAFit.eyebrow}
+            title={services.notAFit.title}
+            description={services.notAFit.description}
             className="mb-12"
           />
           <div className="grid gap-6 md:grid-cols-3">
-            {notAFit.map((item) => (
+            {services.notAFit.items.map((item) => (
               <div key={item} className="flex gap-4">
                 <XCircle className="h-6 w-6 text-text-tertiary" />
                 <p className="text-text-secondary">{item}</p>
@@ -103,8 +75,8 @@ export default function ServicesPage() {
         </Container>
       </Section>
       <CTABand
-        headline="Ready to scope your sprint?"
-        description="Start with an AI Readiness Call or jump straight into the Architecture Review."
+        headline={services.ctaBand.headline}
+        description={services.ctaBand.description}
         calendlyUrl={calendlyUrl}
       />
     </>

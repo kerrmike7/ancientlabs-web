@@ -5,6 +5,7 @@ import { CTABand } from "@/components/CTABand";
 import { SectionHeader } from "@/components/SectionHeader";
 import Link from "next/link";
 import { runtimeConfig } from "@/lib/runtimeConfig";
+import { siteCopy } from "@/content/siteCopy";
 
 export const metadata: Metadata = {
   title: "About Ancient Labs",
@@ -14,14 +15,15 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   const { calendlyUrl } = runtimeConfig;
+  const { about } = siteCopy;
   return (
     <>
       <Section className="pb-12">
         <Container>
           <SectionHeader
-            eyebrow="About"
-            title="A small studio of senior engineers."
-            description="Founded by Michael Kerr (ex-Stripe/Uber) to bridge the gap between enterprise ambition and mid-market realities."
+            eyebrow={about.hero.eyebrow}
+            title={about.hero.title}
+            description={about.hero.description}
           />
         </Container>
       </Section>
@@ -29,25 +31,14 @@ export default function AboutPage() {
       <Section className="pt-0">
         <Container className="max-w-3xl space-y-8">
           <div className="space-y-6 text-lg leading-relaxed text-text-secondary">
-            <p>
-              We started Ancient Labs after watching mid-market teams get sold
-              &ldquo;AI transformations&rdquo; by agencies that couldn&apos;t ship code—or
-              locked into enterprise platforms that were too rigid to adapt.
-            </p>
-            <p>
-              We&apos;re engineers, not consultants. We&apos;ve built payment rails moving
-              billions and data systems for public companies. We bring that rigor
-              to your infrastructure.
-            </p>
-            <p>
-              Every engagement is hands-on, repo-first, and focused on tangible
-              outcomes. No black boxes, no mystery retainers.
-            </p>
+            {about.bio.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
           </div>
 
           <div className="border-l-4 border-accent-primary bg-bg-subtle/60 px-6 py-4">
             <blockquote className="text-xl font-medium text-text-primary italic">
-              &quot;We believe AI is an infrastructure problem, not a magic trick.&quot;
+              &quot;{about.quote}&quot;
             </blockquote>
           </div>
         </Container>
@@ -55,25 +46,25 @@ export default function AboutPage() {
        <Section className="bg-bg-subtle">
         <Container>
             <SectionHeader
-              eyebrow="Where to next"
-              title="See how we work."
-              description="Jump straight into the services or payments detail pages."
+              eyebrow={about.nextSteps.eyebrow}
+              title={about.nextSteps.title}
+              description={about.nextSteps.description}
               className="mb-6"
             />
             <div className="flex gap-4">
-                 <Link href="/services" className="text-accent-primary font-medium hover:underline underline-offset-4">
-                    View our Services &rarr;
+                 <Link href={about.nextSteps.links[0].href} className="text-accent-primary font-medium hover:underline underline-offset-4">
+                    {about.nextSteps.links[0].label} &rarr;
                 </Link>
-                 <Link href="/payments" className="text-accent-primary font-medium hover:underline underline-offset-4">
-                    Explore Payments &rarr;
+                 <Link href={about.nextSteps.links[1].href} className="text-accent-primary font-medium hover:underline underline-offset-4">
+                    {about.nextSteps.links[1].label} &rarr;
                 </Link>
             </div>
         </Container>
        </Section>
 
       <CTABand
-        headline="Want to work directly with the founding team?"
-        description="We run the engagements ourselves—start the conversation via the Readiness Call or Architecture Review."
+        headline={about.ctaBand.headline}
+        description={about.ctaBand.description}
         calendlyUrl={calendlyUrl}
       />
     </>
