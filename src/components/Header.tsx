@@ -8,6 +8,7 @@ import { siteConfig } from "@/siteConfig";
 import { Container } from "./Container";
 import { Button } from "./Button";
 import { cn } from "@/lib/utils";
+import { Logo } from "./Logo";
 
 interface HeaderProps {
   calendlyUrl?: string;
@@ -53,9 +54,16 @@ export function Header({ calendlyUrl }: HeaderProps) {
       <Container className="flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-text-primary"
+          className="flex items-center gap-2 text-text-primary"
+          aria-label="Ancient Labs home"
         >
-          {siteConfig.name}
+          <Logo
+            className="h-6 w-6 text-text-primary dark:text-white"
+            aria-hidden="true"
+          />
+          <span className="text-lg font-semibold tracking-tight">
+            {siteConfig.name}
+          </span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {navItems.map((item) => renderNavLink(item.href, item.label))}

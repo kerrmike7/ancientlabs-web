@@ -15,6 +15,7 @@ import {
 import { Badge } from "@/components/Badge";
 import { SectionHeader } from "@/components/SectionHeader";
 import { runtimeConfig } from "@/lib/runtimeConfig";
+import { Logo } from "@/components/Logo";
 
 export const metadata: Metadata = {
   title: "Mid-Market Data & AI Studio",
@@ -59,7 +60,18 @@ export default function Home() {
       {/* Hero Section */}
       <Section className="pb-16 pt-24 md:pb-24 md:pt-32">
         <div className="max-w-3xl space-y-8">
-          <Badge>Mid-Market Data & AI Studio</Badge>
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-3">
+              <Logo
+                className="h-10 w-10 text-text-primary dark:text-white"
+                aria-hidden="true"
+              />
+              <span className="text-lg font-medium tracking-wide text-text-secondary">
+                {siteConfig.name}
+              </span>
+            </div>
+            <Badge>Mid-Market Data & AI Studio</Badge>
+          </div>
           <h1 className="text-4xl font-semibold tracking-tight text-text-primary sm:text-6xl">
             AI-Ready Data Foundations for the Mid-Market.
           </h1>

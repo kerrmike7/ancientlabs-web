@@ -1,16 +1,21 @@
 import Link from "next/link";
 import { siteConfig } from "@/siteConfig";
 import { Container } from "./Container";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
     <footer className="border-t border-border-subtle bg-bg-subtle py-12 text-sm text-text-secondary">
       <Container className="grid gap-8 md:grid-cols-4">
         <div>
-          <div className="mb-4 text-lg font-semibold text-text-primary">{siteConfig.name}</div>
-          <p className="max-w-xs text-text-tertiary">
-            {siteConfig.description}
-          </p>
+          <div className="mb-4 flex items-center gap-3 text-text-primary">
+            <Logo
+              className="h-8 w-8 text-text-primary dark:text-white"
+              aria-hidden="true"
+            />
+            <span className="text-xl font-semibold">{siteConfig.name}</span>
+          </div>
+          <p className="max-w-xs text-text-tertiary">{siteConfig.description}</p>
         </div>
         <div>
           <h3 className="mb-3 font-semibold text-text-primary">Company</h3>
