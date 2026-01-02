@@ -72,29 +72,46 @@ export const siteCopy = {
   services: {
     hero: {
       eyebrow: "Services",
-      title: "Engagement models built for speed.",
-      description: "Fixed-scope sprints with tangible deliverables. No open-ended consulting.",
+      title: "Engagements designed for clarity and momentum.",
+      description:
+        "Fixed-scope work to get your data ready for AI — and ship something real. No open-ended consulting.",
     },
     offers: [
       {
-        duration: "2 Weeks",
-        title: "The Foundation Sprint",
-        description: "For messy data environments that need a reset before layering AI.",
+        duration: "2–4 weeks",
+        title: "AI Data Readiness Assessment",
+        description:
+          "For teams with scattered data who need clarity before investing further in AI.\n\nWe map your systems, assess data maturity, and identify which AI use cases are actually feasible — and worth building.",
         bullets: [
-          "Comprehensive data audit & schema cleanup",
-          "Initial ETL/ELT pipeline deployment",
-          "Documentation for your engineering team",
+          "Map core systems (CRM, analytics, ops, finance, support)",
+          "Score AI readiness across data, infrastructure, and governance",
+          "Identify 2–3 viable AI use cases with effort vs. impact trade-offs",
         ],
+        price: "From €3,000",
       },
       {
-        duration: "1 Week",
-        title: "Architecture Review",
-        description: "Validation before big spend—pressure-test your stack and roadmap.",
+        duration: "6–10 weeks",
+        title: "Data Readiness Implementation Sprint",
+        description:
+          "Turn readiness into reality by building the minimum data foundation needed for one real outcome.\n\nThis sprint focuses on connecting, cleaning, and governing only the data required to support a chosen use case.",
         bullets: [
-          "Stack selection + buy vs. build memo",
-          "Security & compliance assessment",
-          "Executive-ready roadmap presentation",
+          "Build pipelines between 2–4 key systems",
+          "Define schemas, labels, and access rules",
+          "Establish data quality checks and ROI tracking",
         ],
+        price: "Typical projects €15,000–30,000",
+      },
+      {
+        duration: "6–12 weeks",
+        title: "AI Use Case to Production",
+        description:
+          "Once your data foundation is in place, we help you ship a single AI workflow tied to a real KPI.\n\nThis might be internal search, support automation, analytics augmentation, or decision support — depending on your data.",
+        bullets: [
+          "Design and ship one production-ready AI use case",
+          "Measure impact against a defined business KPI",
+          "Ensure observability, governance, and handover",
+        ],
+        price: "Scoped after assessment",
       },
     ],
     notAFit: {
