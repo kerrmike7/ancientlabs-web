@@ -8,14 +8,14 @@ export const siteCopy = {
   home: {
     hero: {
       badge: "AI Data Readiness Studio",
-      headline: "AI didn't fail you. Your data wasn't ready.",
+      headline: "AI didn't fail you. The foundations weren't ready.",
       subheadline: [
-        "Ancient Labs helps teams fix fragmented data and ship one reliable, ROI-positive AI use case in 90 days — without rebuilding their entire stack.",
+        "Ancient Labs builds the data foundations required to run one reliable, ROI-positive AI use case in production — typically within 90 days.",
       ],
       bullets: [
-        "Fragmented data across silos prevents AI from accessing the context it needs.",
-        "Missing ownership and lineage means AI outputs can't be trusted or audited.",
-        "AI pilots fail to harden into production systems because the data foundation isn't reliable.",
+        "We bring fragmented data into a single, usable context so AI can operate correctly.",
+        "We establish clear ownership, lineage, and structure so outputs can be trusted and audited.",
+        "We turn stalled AI pilots into production systems by fixing the data underneath them.",
       ],
     },
     trust: {
@@ -23,55 +23,62 @@ export const siteCopy = {
         {
           label: "Data before AI",
           value:
-            "Reliable AI starts with owned, well-modeled data. Tools, prompts, and models only work when the underlying data is clear, consistent, and trusted.",
+            "Reliable AI starts with owned, well-modeled data. Models and prompts only work when the underlying data is clear, consistent, and trusted.",
         },
         {
           label: "Narrow scope wins",
           value:
-            "Most AI initiatives fail by trying to do too much. We focus on one outcome, one data surface, and one use case—until it works in production.",
+            "Most AI initiatives fail by attempting too much at once. We focus on one outcome, one data surface, and one use case—until it runs in production.",
         },
         {
           label: "Production over pilots",
           value:
-            "If it can’t be measured, audited, and owned, it isn’t done. We build AI systems that survive real users, real data, and real accountability.",
+            "If it can't be measured, audited, and owned, it isn't finished. We build systems that survive real users and real accountability.",
         },
       ],
     },
     valueProp: {
       eyebrow: "What we do",
-      title: "AI data readiness, not generic AI consulting.",
-      description: "We fix the invisible data and operational blockers so AI becomes reliable. We start by getting the data right—then, if it makes sense, ship one use case tied to a real KPI.",
+      title: "AI data readiness — not generic AI consulting.",
+      description:
+        "We fix the data and operational foundations that make AI usable. Then we ship one production AI use case tied to a real KPI.",
       cards: [
         {
-          title: "Vertical AI-Ready Data Layer",
-          copy: "A clean, mapped schema that unifies the systems that matter—analytics, CRM, operations, and feedback—ready for LLM/RAG and reporting.",
+          title: "AI-Ready Data Foundations",
+          copy:
+            "A clean, mapped data layer that connects the systems that matter — analytics, CRM, operations, and feedback — structured for reporting and LLM/RAG.",
         },
         {
-          title: "AI Readiness Scoring & Analytics",
-          copy: "Assess data coverage, structure, and ownership gaps. Prioritize fixes and pick one use case your team can ship and measure.",
+          title: "Readiness Scoring & Direction",
+          copy:
+            "We assess coverage, structure, and ownership gaps, then define exactly which AI use case is worth building — and which are not.",
         },
         {
-          title: "AI Pilot Turnaround",
-          copy: "If your pilot stalled, we diagnose why (data, integration, governance), salvage what's useful, and relaunch one working workflow in production.",
+          title: "Pilot Recovery & Hardening",
+          copy:
+            "If an AI pilot stalled, we identify the failure point, repair the data foundations, and relaunch a single workflow into production.",
         },
       ],
     },
     notAFit: {
-      eyebrow: "Positioning",
-      title: "Who we are not.",
-      description: "Saying no keeps engagements tight and outcomes honest.",
+      eyebrow: "Scope",
+      title: "When this work makes sense.",
+      description: "Clear boundaries lead to real outcomes.",
       items: [
         {
-          title: "A creative agency for chatbots.",
-          copy: "We don't build gimmicks. We ship the data plumbing that makes AI reliable.",
+          title: "Production matters.",
+          copy:
+            "We work with teams aiming to run AI in real workflows — not demos, prompts, or experiments.",
         },
         {
-          title: "A single-vendor implementation shop.",
-          copy: "No Palantir-only reselling here. We pick the right boring tech for your scale.",
+          title: "Infrastructure over hype.",
+          copy:
+            "This work focuses on data foundations and system design, not surface-level AI features.",
         },
         {
-          title: "Staff augmentation for maintenance tickets.",
-          copy: "You get accountable sprints with defined outcomes, not open-ended hourly billing.",
+          title: "Ownership is required.",
+          copy:
+            "We partner with teams who want to understand and own their data — not outsource responsibility.",
         },
       ],
     },
@@ -84,32 +91,32 @@ export const siteCopy = {
   services: {
     hero: {
       eyebrow: "Services",
-      title: "Engagements designed for clarity and momentum.",
+      title: "Engagements designed to reach production.",
       description:
-        "Fixed-scope work to get your data ready for AI — and ship something real. No open-ended consulting.",
+        "Fixed-scope work to establish AI-ready data foundations and ship one real use case. No open-ended consulting.",
     },
     offers: [
       {
         duration: "2–4 weeks",
         title: "AI Data Readiness Assessment",
         description:
-          "For teams with scattered data who need clarity before investing further in AI.\n\nWe map your systems, assess data maturity, and identify which AI use cases are actually feasible — and worth building.",
+          "For teams who want clarity before investing further in AI.\n\nWe assess your systems, data structure, and ownership to determine what is realistically shippable.",
         bullets: [
-          "Map core systems (CRM, analytics, ops, finance, support)",
-          "Score AI readiness across data, infrastructure, and governance",
-          "Identify 2–3 viable AI use cases with effort vs. impact trade-offs",
+          "Map core systems across data, analytics, and operations",
+          "Score readiness across structure, access, and governance",
+          "Identify 2–3 viable AI use cases ranked by effort vs. impact",
         ],
         price: "From €3,000",
       },
       {
         duration: "6–10 weeks",
-        title: "Data Readiness Implementation Sprint",
+        title: "Data Foundations Sprint",
         description:
-          "Turn readiness into reality by building the minimum data foundation needed for one real outcome.\n\nThis sprint focuses on connecting, cleaning, and governing only the data required to support a chosen use case.",
+          "We build the minimum data foundation required to support one production outcome.\n\nNo excess pipelines. No speculative architecture.",
         bullets: [
-          "Build pipelines between 2–4 key systems",
+          "Connect and clean 2–4 critical systems",
           "Define schemas, labels, and access rules",
-          "Establish data quality checks and ROI tracking",
+          "Implement data quality checks and KPI tracking",
         ],
         price: "Typical projects €15,000–30,000",
       },
@@ -117,28 +124,90 @@ export const siteCopy = {
         duration: "6–12 weeks",
         title: "AI Use Case to Production",
         description:
-          "Once your data foundation is in place, we help you ship a single AI workflow tied to a real KPI.\n\nThis might be internal search, support automation, analytics augmentation, or decision support — depending on your data.",
+          "With foundations in place, we ship one AI workflow tied to a real KPI.\n\nSearch, automation, analytics augmentation, or decision support — based on your data.",
         bullets: [
-          "Design and ship one production-ready AI use case",
-          "Measure impact against a defined business KPI",
+          "Design and deploy one production AI workflow",
+          "Measure business impact against a defined KPI",
           "Ensure observability, governance, and handover",
         ],
         price: "Scoped after assessment",
       },
     ],
     notAFit: {
-      eyebrow: "Positioning",
-      title: "Who is this not for?",
-      description: "Clarity about fit keeps engagements tight.",
+      eyebrow: "Fit",
+      title: "This engagement works best when:",
+      description: "A few conditions make the difference.",
       items: [
-        "Teams seeking long-term staff augmentation or maintenance.",
-        "Pre-seed startups without validated product/data volume.",
-        "Marketing-led \"AI buzz\" projects with no infra outcomes.",
+        "There is enough real data volume to support production use.",
+        "The team can commit to decisions on ownership, access, and scope.",
+        "The goal is a shippable outcome — not ongoing experimentation.",
       ],
     },
     ctaBand: {
       headline: "Ready to scope your sprint?",
-      description: "Start with an AI Readiness Call or jump straight into the Architecture Review.",
+      description:
+        "Start with an AI Readiness Call or go straight to an Architecture Review.",
+    },
+  },
+
+  // About
+  about: {
+    hero: {
+      eyebrow: "About",
+      title: "A specialized studio for AI data foundations.",
+      description:
+        "Ancient Labs helps teams make AI reliable by fixing the systems underneath it.",
+    },
+    intro:
+      "We work with teams whose data is fragmented across tools and ownership is unclear — and who need AI to work in production, not demos.",
+    sections: [
+      {
+        heading: "Why we exist",
+        paragraphs: [
+          "We kept seeing the same failure pattern.",
+          "AI pilots launched quickly. Tools were purchased. Expectations were high.",
+          "But without structured, owned, connected data, nothing reached production.",
+          "The issue wasn't models or ambition. It was foundations.",
+        ],
+      },
+      {
+        heading: "Who we work with",
+        paragraphs: [
+          "We work with teams where data maturity is low — but outcomes still matter.",
+        ],
+        bullets: [
+          "Service businesses with fragmented customer and operational data",
+          "E-commerce and digital platforms struggling to unify analytics and AI",
+          "Non-profits that need reliable data to demonstrate impact",
+          "Regulated or high-stakes environments where experimentation isn't enough",
+        ],
+        closing: "Different sectors. The same structural problem.",
+      },
+      {
+        heading: "How we work",
+        paragraphs: [
+          "We operate as a founder-led studio.",
+          "We lead architecture, data design, and delivery directly.",
+          "When scale is required, we extend through senior engineers we've worked with for years.",
+          "Every engagement is scoped around a concrete outcome.",
+        ],
+      },
+    ],
+    quote:
+      "AI is an infrastructure problem. When the foundations are right, AI becomes boring — and that's when it works.",
+    nextSteps: {
+      eyebrow: "Where to next",
+      title: "See how we work.",
+      description: "Jump straight into the services or process detail pages.",
+      links: [
+        { label: "View our Services", href: "/services" },
+        { label: "View our Process", href: "/process" },
+      ],
+    },
+    ctaBand: {
+      headline: "Work directly with the founding team.",
+      description:
+        "Start with an AI Readiness Call or request an Architecture Review.",
     },
   },
 
@@ -194,13 +263,13 @@ export const siteCopy = {
         period: "WEEK 0",
         title: "Intro & Discovery (No obligation)",
         description:
-          "We start with a short working session to understand your goals, constraints, and context. We look at what you’ve already tried—or wanted to try—with AI, and where things stalled. We assess business goals, existing systems, past AI attempts, and organisational readiness. Decision gate: Proceed to AI Readiness Assessment.",
+          "We start with a short working session to understand your goals, constraints, and context. We look at what you've already tried—or wanted to try—with AI, and where things stalled. We assess business goals, existing systems, past AI attempts, and organisational readiness. Decision gate: Proceed to AI Readiness Assessment.",
       },
       {
         period: "WEEKS 1–2",
         title: "AI Readiness Assessment",
         description:
-          "We dig into your data and systems to understand what’s actually possible. This is mostly interviews, light audits, and hands-on review—not heavy build work. You get a readiness score, clear blockers, and 2–3 realistic AI use cases ranked by effort vs. impact. Decision gate: Proceed to Data Foundations—or stop with a clear plan.",
+          "We dig into your data and systems to understand what's actually possible. This is mostly interviews, light audits, and hands-on review—not heavy build work. You get a readiness score, clear blockers, and 2–3 realistic AI use cases ranked by effort vs. impact. Decision gate: Proceed to Data Foundations—or stop with a clear plan.",
       },
       {
         period: "WEEKS 3–4",
@@ -218,7 +287,7 @@ export const siteCopy = {
         period: "WEEKS 11–18",
         title: "AI Use Case Build",
         description:
-          "We ship one AI workflow tied to a real KPI. We scope, integrate, validate, and iterate the solution—whether that’s internal search, support automation, analytics augmentation, or decision support. Outcome: one AI use case live in production.",
+          "We ship one AI workflow tied to a real KPI. We scope, integrate, validate, and iterate the solution—whether that's internal search, support automation, analytics augmentation, or decision support. Outcome: one AI use case live in production.",
       },
       {
         period: "FINAL STEP",
@@ -248,64 +317,6 @@ export const siteCopy = {
     },
   },
 
-  // About
-  about: {
-    hero: {
-      eyebrow: "About",
-      title: "A small studio focused on AI data foundations.",
-      description: "Ancient Labs helps growing teams make AI reliable by fixing the data and systems underneath it.",
-    },
-    intro: "We work with organizations whose data is scattered across tools, teams, and vendors — and who want real outcomes from AI without large budgets, long timelines, or costly experimentation. Our focus is narrow by design: get the data foundation right, then ship something that works.",
-    sections: [
-      {
-        heading: "Why we exist",
-        paragraphs: [
-          "We started Ancient Labs after seeing the same pattern repeat.",
-          "Teams were eager to adopt AI. Pilots were launched. Tools were bought. But without clean, connected, well-owned data, nothing ever made it to production.",
-          "The problem wasn't ambition or models — it was foundations.",
-          "AI only creates value when data is structured, reliable, and designed for real use cases. That's the gap we exist to close.",
-        ],
-      },
-      {
-        heading: "Who we work with",
-        paragraphs: [
-          "We focus on growing teams with low data readiness — where data is fragmented, ownership is unclear, and outcomes still matter.",
-          "This often includes:",
-        ],
-        bullets: [
-          "Service businesses with scattered customer, booking, and behavioral data",
-          "E-commerce and digital platforms struggling to unify analytics, operations, and AI use cases",
-          "Non-profits and mission-driven organizations that need clearer data to demonstrate impact",
-          "Regulated or high-stakes environments where \"experiments\" aren't enough",
-        ],
-        closing: "Different sectors. The same underlying data problem.",
-      },
-      {
-        heading: "How we work",
-        paragraphs: [
-          "Ancient Labs can engage as focused advisors — or as hands-on builders.",
-          "We lead AI readiness, data architecture, and system design directly. When timelines or scope require it, we scale delivery through a trusted bench of senior engineers we've worked with for years.",
-          "This allows us to stay founder-led and outcome-driven, while supporting projects that range from small, targeted builds to larger, time-sensitive initiatives.",
-          "Every engagement is scoped around a concrete outcome — not open-ended exploration.",
-        ],
-      },
-    ],
-    quote: "AI is an infrastructure problem, not a magic trick. When the foundations are right, AI becomes boring — and that's when it starts working.",
-    nextSteps: {
-      eyebrow: "Where to next",
-      title: "See how we work.",
-      description: "Jump straight into the services or process detail pages.",
-      links: [
-        { label: "View our Services", href: "/services" },
-        { label: "View our Process", href: "/process" },
-      ],
-    },
-    ctaBand: {
-      headline: "Want to work directly with the founding team?",
-      description: "We run the engagements ourselves—start the conversation via the Readiness Call or Architecture Review.",
-    },
-  },
-
   // Insights
   insights: {
     hero: {
@@ -331,11 +342,5 @@ export const siteCopy = {
       headline: "Want infrastructure notes in your inbox?",
       description: "Grab a call or request an Architecture Review and we'll send the latest thinking afterward.",
     },
-  },
-
-  // Global CTA labels (already in siteConfig, but keeping for consistency)
-  ctas: {
-    readiness: "Book AI Readiness Call",
-    architecture: "Request Architecture Review",
   },
 };
