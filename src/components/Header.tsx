@@ -11,15 +11,14 @@ import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 
 interface HeaderProps {
-  calendlyUrl?: string;
   contactHref: string;
 }
 
-export function Header({ calendlyUrl, contactHref }: HeaderProps) {
+export function Header({ contactHref }: HeaderProps) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const primaryHref = calendlyUrl || contactHref;
-  const secondaryHref = contactHref;
+  const readinessHref = siteConfig.ctas.readiness.href;
+  const architectureHref = contactHref;
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
@@ -84,16 +83,20 @@ export function Header({ calendlyUrl, contactHref }: HeaderProps) {
         </nav>
         <div className="flex items-center gap-2">
           <div className="hidden items-center gap-2 md:flex">
-            <Link href={secondaryHref}>
+            <Link href={architectureHref}>
               <Button variant="ghost" size="sm">
                 {siteConfig.ctas.architecture.label}
               </Button>
             </Link>
-            <Link href={primaryHref}>
+            <a
+              href={readinessHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button variant="primary" size="sm">
                 {siteConfig.ctas.readiness.label}
               </Button>
-            </Link>
+            </a>
           </div>
           <button
             type="button"
@@ -143,12 +146,17 @@ export function Header({ calendlyUrl, contactHref }: HeaderProps) {
             </nav>
             <div className="mt-8 border-t border-border-default pt-6">
               <div className="flex flex-col gap-3">
-                <Link href={primaryHref} onClick={handleCloseMenu}>
+                <a
+                  href={readinessHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleCloseMenu}
+                >
                   <Button size="md" className="w-full">
                     {siteConfig.ctas.readiness.label}
                   </Button>
-                </Link>
-                <Link href={secondaryHref} onClick={handleCloseMenu}>
+                </a>
+                <Link href={architectureHref} onClick={handleCloseMenu}>
                   <Button
                     size="md"
                     variant="secondary"

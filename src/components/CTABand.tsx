@@ -19,8 +19,8 @@ export function CTABand({
   calendlyUrl,
   contactHref = siteConfig.ctas.architecture.href,
 }: CTABandProps) {
-  const primaryHref = calendlyUrl || contactHref;
-  const secondaryHref = contactHref;
+  const readinessHref = siteConfig.ctas.readiness.href;
+  const architectureHref = contactHref;
 
   return (
     <Section className="border-y border-border-default bg-bg-subtle">
@@ -39,12 +39,16 @@ export function CTABand({
           )}
         </div>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link href={primaryHref}>
+          <a
+            href={readinessHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button size="lg" variant="primary">
               {siteConfig.ctas.readiness.label}
             </Button>
-          </Link>
-          <Link href={secondaryHref}>
+          </a>
+          <Link href={architectureHref}>
             <Button size="lg" variant="secondary">
               {siteConfig.ctas.architecture.label}
             </Button>

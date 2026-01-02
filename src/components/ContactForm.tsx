@@ -8,14 +8,14 @@ interface ContactFormProps {
   contactEndpoint?: string;
   accessKey?: string;
   fallbackEmail?: string;
-  defaultIntent?: string;
+  defaultTopic?: string;
 }
 
 export function ContactForm({
   contactEndpoint,
   accessKey,
   fallbackEmail = "michael@ancientlabs.co",
-  defaultIntent = "readiness",
+  defaultTopic = "readiness",
 }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -124,7 +124,7 @@ export function ContactForm({
         </div>
        )}
 
-      <input type="hidden" name="intent" value={defaultIntent} />
+      <input type="hidden" name="intent" value={defaultTopic} />
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm font-medium text-text-primary">
@@ -166,7 +166,7 @@ export function ContactForm({
                 name="topic"
                  disabled={status === "submitting"}
                 className="w-full appearance-none rounded-sm border border-border-default bg-bg-surface px-3 py-2 text-sm text-text-primary focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary disabled:opacity-50"
-                defaultValue="readiness"
+                defaultValue={defaultTopic}
              >
                 <option value="readiness">AI Readiness Call</option>
                 <option value="architecture">Architecture Review</option>

@@ -14,17 +14,16 @@ export const metadata: Metadata = {
 
 interface ContactPageProps {
   searchParams?: {
-    intent?: string;
+    topic?: string;
   };
 }
 
 export default function ContactPage({ searchParams }: ContactPageProps) {
-  const { calendlyUrl, contactEndpoint, web3FormsKey } = runtimeConfig;
-  const contactHref = siteConfig.ctas.architecture.href;
-  const readinessHref = calendlyUrl || contactHref;
-  const defaultIntent =
-    typeof searchParams?.intent === "string" && searchParams.intent.trim().length > 0
-      ? searchParams.intent
+  const { contactEndpoint, web3FormsKey } = runtimeConfig;
+  const readinessHref = siteConfig.ctas.readiness.href;
+  const defaultTopic =
+    typeof searchParams?.topic === "string" && searchParams.topic.trim().length > 0
+      ? searchParams.topic
       : "readiness";
 
   return (
@@ -61,6 +60,8 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
                          <p className="text-text-secondary mb-2">Skip the back-and-forth.</p>
                         <a
                           href={readinessHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-accent-primary font-medium hover:underline block"
                         >
                           {siteConfig.ctas.readiness.label} &rarr;
@@ -78,7 +79,7 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
               contactEndpoint={contactEndpoint}
               accessKey={web3FormsKey}
               fallbackEmail="michael@ancientlabs.co"
-              defaultIntent={defaultIntent}
+              defaultTopic={defaultTopic}
             />
             </div>
           </div>

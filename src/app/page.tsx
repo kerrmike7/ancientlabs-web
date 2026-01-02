@@ -24,10 +24,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const { calendlyUrl } = runtimeConfig;
   const { home } = siteCopy;
-  const contactHref = siteConfig.ctas.architecture.href;
-  const primaryHref = calendlyUrl || contactHref;
+  const readinessHref = siteConfig.ctas.readiness.href;
+  const architectureHref = siteConfig.ctas.architecture.href;
 
   return (
     <div className="flex flex-col">
@@ -63,12 +62,16 @@ export default function Home() {
             ))}
           </ul>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Link href={primaryHref}>
+            <a
+              href={readinessHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button size="lg" variant="primary">
                 {siteConfig.ctas.readiness.label}
               </Button>
-            </Link>
-            <Link href={contactHref}>
+            </a>
+            <Link href={architectureHref}>
               <Button size="lg" variant="secondary">
                 {siteConfig.ctas.architecture.label}
               </Button>
@@ -109,8 +112,7 @@ export default function Home() {
       {/* CTA Band */}
       <CTABand
         headline={home.ctaBand.headline}
-        calendlyUrl={calendlyUrl}
-        contactHref={contactHref}
+        contactHref={architectureHref}
       />
     </div>
   );
