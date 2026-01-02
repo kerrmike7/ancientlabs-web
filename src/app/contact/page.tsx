@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { ContactForm } from "@/components/ContactForm";
@@ -75,12 +76,14 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
           <div>
             <div id="contact-form" className="-mt-24 pt-24" aria-hidden="true" />
             <div className="rounded-lg border border-border-default bg-bg-default p-6 sm:p-8 shadow-sm">
-            <ContactForm
-              contactEndpoint={contactEndpoint}
-              accessKey={web3FormsKey}
-              fallbackEmail="michael@ancientlabs.co"
-              defaultTopic={defaultTopic}
-            />
+            <Suspense fallback={<div className="text-text-secondary">Loading form...</div>}>
+              <ContactForm
+                contactEndpoint={contactEndpoint}
+                accessKey={web3FormsKey}
+                fallbackEmail="michael@ancientlabs.co"
+                defaultTopic={defaultTopic}
+              />
+            </Suspense>
             </div>
           </div>
         </div>
