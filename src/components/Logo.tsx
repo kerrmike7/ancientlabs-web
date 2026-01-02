@@ -7,21 +7,19 @@ interface LogoProps extends SVGAttributes<SVGSVGElement> {
 
 export function Logo({
   className,
-  "aria-label": ariaLabel = "Ancient Labs logo",
   style,
+  "aria-label": ariaLabel = "Ancient Labs logo",
   ...props
 }: LogoProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="64"
-      height="64"
       viewBox="0 0 64 64"
       role="img"
       aria-label={ariaLabel}
-      className={cn("block fill-current", className)}
+      className={cn("block text-text-primary", className)}
       style={{
-        color: "var(--color-text-primary, #111827)",
+        color: "var(--color-text-primary, var(--foreground, #111827))",
         ...style,
       }}
       {...props}

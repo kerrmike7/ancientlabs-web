@@ -37,7 +37,7 @@ export default function Home() {
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
               <Logo
-                className="h-10 w-10 text-text-primary dark:text-white"
+                className="h-10 w-10 dark:text-white"
                 aria-hidden="true"
               />
               <span className="text-lg font-medium tracking-wide text-text-secondary">

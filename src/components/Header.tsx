@@ -72,7 +72,7 @@ export function Header({ calendlyUrl, contactHref }: HeaderProps) {
           aria-label="Ancient Labs home"
         >
           <Logo
-            className="h-8 w-8 text-text-primary dark:text-white"
+            className="h-8 w-8 dark:text-white"
             aria-hidden="true"
           />
           <span className="text-lg font-semibold tracking-tight">
