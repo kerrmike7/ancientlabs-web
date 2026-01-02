@@ -174,28 +174,45 @@ export const siteCopy = {
     hero: {
       eyebrow: "Process",
       title: "How we work.",
-      description: "Transparent, iterative, and rigorous. We treat your infrastructure with the same care we treat our own.",
+      description:
+        "A structured path from scattered data to one AI use case in production. Each phase ends with a clear decision—continue, pause, or stop with value in hand.",
     },
     steps: [
       {
-        period: "Week 0",
-        title: "The Audit",
-        description: "We sign an NDA, access your VPC and repo, and map the territory. We identify bottlenecks, security risks, and architectural debt before writing a single line of code.",
+        period: "WEEK 0",
+        title: "Intro & Discovery (No obligation)",
+        description:
+          "We start with a short working session to understand your goals, constraints, and context. We look at what you’ve already tried—or wanted to try—with AI, and where things stalled. We assess business goals, existing systems, past AI attempts, and organisational readiness. Decision gate: Proceed to AI Readiness Assessment.",
       },
       {
-        period: "Day 2",
-        title: "The Strategy",
-        description: "We propose the stack and schema. No 50-page PDFs—just a clear Notion doc and a diagram explaining what we're building and why.",
+        period: "WEEKS 1–2",
+        title: "AI Readiness Assessment",
+        description:
+          "We dig into your data and systems to understand what’s actually possible. This is mostly interviews, light audits, and hands-on review—not heavy build work. You get a readiness score, clear blockers, and 2–3 realistic AI use cases ranked by effort vs. impact. Decision gate: Proceed to Data Foundations—or stop with a clear plan.",
       },
       {
-        period: "Weeks 1-2",
-        title: "The Build",
-        description: "We deploy code to your environment. We set up the pipelines, the warehouses, and the API endpoints. You see progress in git commits, not status emails.",
+        period: "WEEKS 3–4",
+        title: "Planning & Architecture",
+        description:
+          "We translate findings into a concrete plan with current-state and proposed architecture diagrams, a prioritised foundation roadmap, and clear scope for implementation. Decision gate: Sign off on Data Foundations work.",
       },
       {
-        period: "Week 3",
-        title: "The Handoff",
-        description: "We don't just leave. We document everything and run a training session for your team. You own the code, the keys, and the roadmap.",
+        period: "WEEKS 5–10",
+        title: "Data Foundations Build",
+        description:
+          "We implement the minimum infrastructure needed to make AI viable. We wire and clean data from the right systems, define schemas and access rules, set up ETL/ELT pipelines, and add governance plus health checks. Outcome: a production-ready data foundation with trusted analytics. Decision gate: Proceed to an AI use case—or pause with production-ready foundations.",
+      },
+      {
+        period: "WEEKS 11–18",
+        title: "AI Use Case Build",
+        description:
+          "We ship one AI workflow tied to a real KPI. We scope, integrate, validate, and iterate the solution—whether that’s internal search, support automation, analytics augmentation, or decision support. Outcome: one AI use case live in production.",
+      },
+      {
+        period: "FINAL STEP",
+        title: "Handoff & Ownership",
+        description:
+          "You own the code, data, and documentation. We run a walkthrough with your team and leave you with a clear roadmap for iteration, expansion, or independence.",
       },
     ],
     principles: {

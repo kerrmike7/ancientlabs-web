@@ -12,7 +12,6 @@ export const siteConfig = {
   },
   nav: [
     { label: "Services", href: "/services" },
-    { label: "Payments", href: "/payments" },
     { label: "Process", href: "/process" },
     { label: "About", href: "/about" },
     { label: "Insights", href: "/insights" },
