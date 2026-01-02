@@ -4,7 +4,7 @@ import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { ContactForm } from "@/components/ContactForm";
 import { Mail, Calendar } from "lucide-react";
-import { siteConfig } from "@/siteConfig";
+import { siteConfig, CALENDLY_URL } from "@/siteConfig";
 import { runtimeConfig } from "@/lib/runtimeConfig";
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ interface ContactPageProps {
 
 export default function ContactPage({ searchParams }: ContactPageProps) {
   const { contactEndpoint, web3FormsKey } = runtimeConfig;
-  const readinessHref = siteConfig.ctas.readiness.href;
+  const readinessHref = CALENDLY_URL; // Direct Calendly link
   const defaultTopic =
     typeof searchParams?.topic === "string" && searchParams.topic.trim().length > 0
       ? searchParams.topic

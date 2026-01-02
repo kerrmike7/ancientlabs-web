@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "./Button";
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
