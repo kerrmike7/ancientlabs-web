@@ -20,27 +20,27 @@ export const siteCopy = {
     },
     trust: {
       items: [
-        { label: "Background", value: "Engineering leadership from high-scale fintechs." },
-        { label: "Proof", value: "$1B+ in payments volume processed." },
-        { label: "Engagements", value: "2-week sprints. Systems, not slides." },
+        { label: "Data before AI", value: "Reliable AI systems start with owned, well-modeled data. Tools, prompts, and models only work when the underlying data foundation is clear, consistent, and trusted." },
+        { label: "Narrow scope wins", value: "Most AI initiatives fail by trying to do too much at once. We focus on one outcome, one data surface, and one use case — until it works in production." },
+        { label: "Production over pilots", value: "If an AI system can't be measured, audited, and owned by your team, it isn't done. We build systems that survive real users, real data, and real accountability." },
       ],
     },
     valueProp: {
       eyebrow: "What we do",
       title: "AI data readiness, not generic AI consulting.",
-      description: "We fix your data foundation so you can ship one reliable, ROI-positive AI use case in 90 days. Narrow scope. Clear outcomes.",
+      description: "We fix the invisible data and operational blockers so AI becomes reliable. We start by getting the data right—then, if it makes sense, ship one use case tied to a real KPI.",
       cards: [
         {
-          title: "AI Foundations",
-          copy: "Clean data pipelines ready for LLM context windows. Structured data models that keep you vendor-agnostic.",
+          title: "Vertical AI-Ready Data Layer",
+          copy: "A clean, mapped schema that unifies the systems that matter—analytics, CRM, operations, and feedback—ready for LLM/RAG and reporting.",
         },
         {
-          title: "Financial Infrastructure",
-          copy: "Reconciliation and ledgering for complex flows. Automated matching of payouts to your internal source of truth.",
+          title: "AI Readiness Scoring & Analytics",
+          copy: "Assess data coverage, structure, and ownership gaps. Prioritize fixes and pick one use case your team can ship and measure.",
         },
         {
-          title: "Strategic Optionality",
-          copy: "Own your data so you can switch models or vendors anytime. No black boxes, no lock-in.",
+          title: "AI Pilot Turnaround",
+          copy: "If your pilot stalled, we diagnose why (data, integration, governance), salvage what's useful, and relaunch one working workflow in production.",
         },
       ],
     },
