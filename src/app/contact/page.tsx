@@ -12,9 +12,20 @@ export const metadata: Metadata = {
     "Let’s talk infrastructure—email hello@ancientlabs.co or send a message through the Web3Forms-powered contact form.",
 };
 
-export default function ContactPage() {
-  const { calendlyUrl, calendlyUrls, contactEndpoint, web3FormsKey } = runtimeConfig;
-  const readinessUrl = calendlyUrls.readiness;
+interface ContactPageProps {
+  searchParams?: {
+    intent?: string;
+  };
+}
+
+export default function ContactPage({ searchParams }: ContactPageProps) {
+  const { calendlyUrl, contactEndpoint, web3FormsKey } = runtimeConfig;
+  const contactHref = siteConfig.ctas.architecture.href;
+  const readinessHref = calendlyUrl || contactHref;
+  const defaultIntent =
+    typeof searchParams?.intent === "string" && searchParams.intent.trim().length > 0
+      ? searchParams.intent
+      : "readiness";
 
   return (
     <Section className="py-12 md:py-24">
@@ -48,30 +59,28 @@ export default function ContactPage() {
                           {siteConfig.ctas.readiness.label}
                         </h3>
                          <p className="text-text-secondary mb-2">Skip the back-and-forth.</p>
-                         {calendlyUrl ? (
-                          <a
-                            href={readinessUrl}
-                            className="text-accent-primary font-medium hover:underline block"
-                          >
-                            {siteConfig.ctas.readiness.label} &rarr;
-                          </a>
-                        ) : (
-                          <span className="text-text-tertiary block" title="Calendly not configured">
-                            {siteConfig.ctas.readiness.label} &rarr;
-                          </span>
-                        )}
+                        <a
+                          href={readinessHref}
+                          className="text-accent-primary font-medium hover:underline block"
+                        >
+                          {siteConfig.ctas.readiness.label} &rarr;
+                        </a>
                     </div>
                 </div>
             </div>
           </div>
 
           {/* Right Column: Form */}
-          <div className="rounded-lg border border-border-default bg-bg-default p-6 sm:p-8 shadow-sm">
+          <div>
+            <div id="contact-form" className="-mt-24 pt-24" aria-hidden="true" />
+            <div className="rounded-lg border border-border-default bg-bg-default p-6 sm:p-8 shadow-sm">
             <ContactForm
               contactEndpoint={contactEndpoint}
               accessKey={web3FormsKey}
               fallbackEmail="hello@ancientlabs.co"
+              defaultIntent={defaultIntent}
             />
+            </div>
           </div>
         </div>
       </Container>

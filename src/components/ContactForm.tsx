@@ -8,12 +8,14 @@ interface ContactFormProps {
   contactEndpoint?: string;
   accessKey?: string;
   fallbackEmail?: string;
+  defaultIntent?: string;
 }
 
 export function ContactForm({
   contactEndpoint,
   accessKey,
   fallbackEmail = "hello@ancientlabs.co",
+  defaultIntent = "readiness",
 }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -122,6 +124,7 @@ export function ContactForm({
         </div>
        )}
 
+      <input type="hidden" name="intent" value={defaultIntent} />
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm font-medium text-text-primary">

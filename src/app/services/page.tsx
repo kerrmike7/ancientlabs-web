@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-  const { calendlyUrls } = runtimeConfig;
+  const { calendlyUrl } = runtimeConfig;
   const { services } = siteCopy;
 
   return (
@@ -77,7 +77,7 @@ export default function ServicesPage() {
       <CTABand
         headline={services.ctaBand.headline}
         description={services.ctaBand.description}
-        calendlyLinks={calendlyUrls}
+        calendlyUrl={calendlyUrl}
       />
     </>
   );

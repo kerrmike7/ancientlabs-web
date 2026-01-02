@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const { calendlyUrl, calendlyUrls } = runtimeConfig;
+  const { calendlyUrl } = runtimeConfig;
   const { home } = siteCopy;
-  const readinessUrl = calendlyUrls.readiness;
-  const architectureUrl = calendlyUrls.architecture;
+  const contactHref = siteConfig.ctas.architecture.href;
+  const primaryHref = calendlyUrl || contactHref;
 
   return (
     <div className="flex flex-col">
@@ -64,38 +64,16 @@ export default function Home() {
             ))}
           </ul>
           <div className="flex flex-col gap-4 sm:flex-row">
-            {calendlyUrl ? (
-              <Link href={readinessUrl}>
-                <Button size="lg" variant="primary">
-                  {siteConfig.ctas.readiness.label}
-                </Button>
-              </Link>
-            ) : (
-              <Button
-                size="lg"
-                variant="primary"
-                disabled
-                title="Calendly not configured"
-              >
+            <Link href={primaryHref}>
+              <Button size="lg" variant="primary">
                 {siteConfig.ctas.readiness.label}
               </Button>
-            )}
-            {calendlyUrl ? (
-              <Link href={architectureUrl}>
-                <Button size="lg" variant="secondary">
-                  {siteConfig.ctas.architecture.label}
-                </Button>
-              </Link>
-            ) : (
-              <Button
-                size="lg"
-                variant="secondary"
-                disabled
-                title="Calendly not configured"
-              >
+            </Link>
+            <Link href={contactHref}>
+              <Button size="lg" variant="secondary">
                 {siteConfig.ctas.architecture.label}
               </Button>
-            )}
+            </Link>
           </div>
         </div>
       </Section>
@@ -152,7 +130,8 @@ export default function Home() {
       {/* CTA Band */}
       <CTABand
         headline={home.ctaBand.headline}
-        calendlyLinks={calendlyUrls}
+        calendlyUrl={calendlyUrl}
+        contactHref={contactHref}
       />
     </div>
   );

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function PaymentsPage() {
-  const { calendlyUrls } = runtimeConfig;
+  const { calendlyUrl } = runtimeConfig;
   const { payments } = siteCopy;
 
   return (
@@ -66,7 +66,7 @@ export default function PaymentsPage() {
       <CTABand
         headline={payments.ctaBand.headline}
         description={payments.ctaBand.description}
-        calendlyLinks={calendlyUrls}
+        calendlyUrl={calendlyUrl}
       />
     </>
   );

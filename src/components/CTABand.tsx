@@ -8,20 +8,19 @@ interface CTABandProps {
   eyebrow?: string;
   headline?: string;
   description?: string;
-  calendlyLinks?: {
-    readiness?: string;
-    architecture?: string;
-  };
+  calendlyUrl?: string;
+  contactHref?: string;
 }
 
 export function CTABand({
   eyebrow,
   headline = "Ready to build your data foundation?",
   description,
-  calendlyLinks,
+  calendlyUrl,
+  contactHref = siteConfig.ctas.architecture.href,
 }: CTABandProps) {
-  const readinessUrl = calendlyLinks?.readiness ?? "";
-  const architectureUrl = calendlyLinks?.architecture ?? "";
+  const primaryHref = calendlyUrl || contactHref;
+  const secondaryHref = contactHref;
 
   return (
     <Section className="border-y border-border-default bg-bg-subtle">
@@ -40,38 +39,16 @@ export function CTABand({
           )}
         </div>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          {readinessUrl ? (
-            <Link href={readinessUrl}>
-              <Button size="lg" variant="primary">
-                {siteConfig.ctas.readiness.label}
-              </Button>
-            </Link>
-          ) : (
-            <Button
-              size="lg"
-              variant="primary"
-              disabled
-              title="Calendly not configured"
-            >
+          <Link href={primaryHref}>
+            <Button size="lg" variant="primary">
               {siteConfig.ctas.readiness.label}
             </Button>
-          )}
-          {architectureUrl ? (
-            <Link href={architectureUrl}>
-              <Button size="lg" variant="secondary">
-                {siteConfig.ctas.architecture.label}
-              </Button>
-            </Link>
-          ) : (
-            <Button
-              size="lg"
-              variant="secondary"
-              disabled
-              title="Calendly not configured"
-            >
+          </Link>
+          <Link href={secondaryHref}>
+            <Button size="lg" variant="secondary">
               {siteConfig.ctas.architecture.label}
             </Button>
-          )}
+          </Link>
         </div>
       </Container>
     </Section>

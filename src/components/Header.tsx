@@ -11,18 +11,15 @@ import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 
 interface HeaderProps {
-  calendlyLinks?: {
-    readiness?: string;
-    architecture?: string;
-  };
+  calendlyUrl?: string;
+  contactHref: string;
 }
 
-export function Header({ calendlyLinks }: HeaderProps) {
+export function Header({ calendlyUrl, contactHref }: HeaderProps) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const readinessUrl = calendlyLinks?.readiness ?? "";
-  const architectureUrl = calendlyLinks?.architecture ?? "";
-  const isCalendlyConfigured = Boolean(readinessUrl);
+  const primaryHref = calendlyUrl || contactHref;
+  const secondaryHref = contactHref;
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
@@ -51,8 +48,8 @@ export function Header({ calendlyLinks }: HeaderProps) {
           "text-sm font-medium transition-colors",
           isMobile
             ? cn(
-                "rounded-md border border-transparent px-4 py-3 text-base tracking-tight",
-                "text-text-primary/90 hover:border-border-default hover:bg-bg-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2"
+                "block w-full px-4 py-3 text-base font-semibold",
+                "text-text-primary/90 hover:bg-bg-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2"
               )
             : "",
           isActive
@@ -85,25 +82,19 @@ export function Header({ calendlyLinks }: HeaderProps) {
         <nav className="hidden items-center gap-6 md:flex">
           {navItems.map((item) => renderNavLink(item.href, item.label))}
         </nav>
-        <div className="flex items-center gap-3">
-          {isCalendlyConfigured ? (
-            <Link href={readinessUrl} className="hidden md:inline-flex">
-              <Button variant="secondary" size="sm">
+        <div className="flex items-center gap-2">
+          <div className="hidden items-center gap-2 md:flex">
+            <Link href={secondaryHref}>
+              <Button variant="ghost" size="sm">
+                {siteConfig.ctas.architecture.label}
+              </Button>
+            </Link>
+            <Link href={primaryHref}>
+              <Button variant="primary" size="sm">
                 {siteConfig.ctas.readiness.label}
               </Button>
             </Link>
-          ) : (
-            <span className="hidden md:inline-flex">
-              <Button
-                variant="secondary"
-                size="sm"
-                disabled
-                title="Calendly not configured"
-              >
-                {siteConfig.ctas.readiness.label}
-              </Button>
-            </span>
-          )}
+          </div>
           <button
             type="button"
             className="inline-flex items-center justify-center rounded-sm border border-border-default p-2 text-text-primary transition-colors hover:bg-bg-subtle md:hidden"
@@ -138,50 +129,34 @@ export function Header({ calendlyLinks }: HeaderProps) {
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <nav className="mt-8 flex flex-col gap-2">
-              {navItems.map((item) => renderNavLink(item.href, item.label, true))}
-              <Link
-                href="/contact"
-                className="rounded-md border border-transparent px-4 py-3 text-base font-medium text-text-secondary transition-colors hover:border-border-default hover:bg-bg-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2"
-                onClick={handleCloseMenu}
-              >
-                Contact
-              </Link>
+            <nav className="mt-8 space-y-1">
+              <div className="divide-y divide-border-subtle overflow-hidden rounded-lg border border-border-default bg-bg-subtle/40">
+                {navItems.map((item) => renderNavLink(item.href, item.label, true))}
+                <Link
+                  href="/contact"
+                  className="block w-full px-4 py-3 text-base font-semibold text-text-secondary transition-colors hover:bg-bg-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2"
+                  onClick={handleCloseMenu}
+                >
+                  Contact
+                </Link>
+              </div>
             </nav>
             <div className="mt-8 border-t border-border-default pt-6">
               <div className="flex flex-col gap-3">
-                {isCalendlyConfigured ? (
-                  <Link href={readinessUrl} onClick={handleCloseMenu}>
-                    <Button size="md" className="w-full">
-                      {siteConfig.ctas.readiness.label}
-                    </Button>
-                  </Link>
-                ) : (
-                  <Button size="md" disabled className="w-full" title="Calendly not configured">
+                <Link href={primaryHref} onClick={handleCloseMenu}>
+                  <Button size="md" className="w-full">
                     {siteConfig.ctas.readiness.label}
                   </Button>
-                )}
-                {architectureUrl ? (
-                  <Link href={architectureUrl} onClick={handleCloseMenu}>
-                    <Button
-                      size="md"
-                      variant="secondary"
-                      className="w-full border-2 border-border-default/80"
-                    >
-                      {siteConfig.ctas.architecture.label}
-                    </Button>
-                  </Link>
-                ) : (
+                </Link>
+                <Link href={secondaryHref} onClick={handleCloseMenu}>
                   <Button
                     size="md"
                     variant="secondary"
-                    disabled
-                    className="w-full"
-                    title="Calendly not configured"
+                    className="w-full border border-border-default/80 bg-white text-text-primary"
                   >
                     {siteConfig.ctas.architecture.label}
                   </Button>
-                )}
+                </Link>
               </div>
             </div>
           </div>

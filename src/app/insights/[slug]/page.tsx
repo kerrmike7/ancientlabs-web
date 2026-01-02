@@ -44,7 +44,7 @@ export async function generateMetadata({
 export default async function EssayPage({ params }: EssayPageProps) {
   const { slug } = await params;
   const essay = await getEssayBySlug(slug);
-  const { calendlyUrls } = runtimeConfig;
+  const { calendlyUrl } = runtimeConfig;
 
   if (!essay) {
     notFound();
@@ -105,7 +105,7 @@ export default async function EssayPage({ params }: EssayPageProps) {
       <CTABand
         headline="Want to discuss this?"
         description="Book an AI Readiness Call or request an Architecture Review."
-        calendlyLinks={calendlyUrls}
+        calendlyUrl={calendlyUrl}
       />
     </>
   );
