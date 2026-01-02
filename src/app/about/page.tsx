@@ -31,10 +31,31 @@ export default function AboutPage() {
       <Section className="pt-0">
         <Container className="max-w-3xl space-y-8">
           <div className="space-y-6 text-lg leading-relaxed text-text-secondary">
-            {about.bio.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
-            ))}
+            <p>{about.intro}</p>
           </div>
+
+          {about.sections.map((section, sectionIndex) => (
+            <div key={sectionIndex} className="space-y-4">
+              <h3 className="text-2xl font-semibold text-text-primary mt-8 first:mt-0">
+                {section.heading}
+              </h3>
+              <div className="space-y-4 text-lg leading-relaxed text-text-secondary">
+                {section.paragraphs.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
+                {section.bullets && (
+                  <ul className="list-disc list-inside space-y-2 ml-4">
+                    {section.bullets.map((bullet, i) => (
+                      <li key={i}>{bullet}</li>
+                    ))}
+                  </ul>
+                )}
+                {section.closing && (
+                  <p className="font-medium text-text-primary">{section.closing}</p>
+                )}
+              </div>
+            </div>
+          ))}
 
           <div className="border-l-4 border-accent-primary bg-bg-subtle/60 px-6 py-4">
             <blockquote className="text-xl font-medium text-text-primary italic">

@@ -7,7 +7,7 @@ export const siteCopy = {
   // Homepage
   home: {
     hero: {
-      badge: "Mid-Market Data & AI Studio",
+      badge: "AI Data Readiness Studio",
       headline: "AI didn't fail you. Your data wasn't ready.",
       subheadline: [
         "Ancient Labs helps teams fix fragmented data and ship one reliable, ROI-positive AI use case in 90 days — without rebuilding their entire stack.",
@@ -206,22 +206,52 @@ export const siteCopy = {
   about: {
     hero: {
       eyebrow: "About",
-      title: "A small studio of senior engineers.",
-      description: "Founded by Michael Kerr (ex-Stripe/Uber) to bridge the gap between enterprise ambition and mid-market realities.",
+      title: "A small studio focused on AI data foundations.",
+      description: "Ancient Labs helps growing teams make AI reliable by fixing the data and systems underneath it.",
     },
-    bio: [
-      "We started Ancient Labs after watching mid-market teams get sold \"AI transformations\" by agencies that couldn't ship code—or locked into enterprise platforms that were too rigid to adapt.",
-      "We're engineers, not consultants. We've built payment rails moving billions and data systems for public companies. We bring that rigor to your infrastructure.",
-      "Every engagement is hands-on, repo-first, and focused on tangible outcomes. No black boxes, no mystery retainers.",
+    intro: "We work with organizations whose data is scattered across tools, teams, and vendors — and who want real outcomes from AI without large budgets, long timelines, or costly experimentation. Our focus is narrow by design: get the data foundation right, then ship something that works.",
+    sections: [
+      {
+        heading: "Why we exist",
+        paragraphs: [
+          "We started Ancient Labs after seeing the same pattern repeat.",
+          "Teams were eager to adopt AI. Pilots were launched. Tools were bought. But without clean, connected, well-owned data, nothing ever made it to production.",
+          "The problem wasn't ambition or models — it was foundations.",
+          "AI only creates value when data is structured, reliable, and designed for real use cases. That's the gap we exist to close.",
+        ],
+      },
+      {
+        heading: "Who we work with",
+        paragraphs: [
+          "We focus on growing teams with low data readiness — where data is fragmented, ownership is unclear, and outcomes still matter.",
+          "This often includes:",
+        ],
+        bullets: [
+          "Service businesses with scattered customer, booking, and behavioral data",
+          "E-commerce and digital platforms struggling to unify analytics, operations, and AI use cases",
+          "Non-profits and mission-driven organizations that need clearer data to demonstrate impact",
+          "Regulated or high-stakes environments where \"experiments\" aren't enough",
+        ],
+        closing: "Different sectors. The same underlying data problem.",
+      },
+      {
+        heading: "How we work",
+        paragraphs: [
+          "Ancient Labs can engage as focused advisors — or as hands-on builders.",
+          "We lead AI readiness, data architecture, and system design directly. When timelines or scope require it, we scale delivery through a trusted bench of senior engineers we've worked with for years.",
+          "This allows us to stay founder-led and outcome-driven, while supporting projects that range from small, targeted builds to larger, time-sensitive initiatives.",
+          "Every engagement is scoped around a concrete outcome — not open-ended exploration.",
+        ],
+      },
     ],
-    quote: "We believe AI is an infrastructure problem, not a magic trick.",
+    quote: "AI is an infrastructure problem, not a magic trick. When the foundations are right, AI becomes boring — and that's when it starts working.",
     nextSteps: {
       eyebrow: "Where to next",
       title: "See how we work.",
-      description: "Jump straight into the services or payments detail pages.",
+      description: "Jump straight into the services or process detail pages.",
       links: [
         { label: "View our Services", href: "/services" },
-        { label: "Explore Payments", href: "/payments" },
+        { label: "View our Process", href: "/process" },
       ],
     },
     ctaBand: {
