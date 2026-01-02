@@ -41,7 +41,7 @@ export function CTABand({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button size="lg" variant="primary">
+            <Button size="lg" variant="default">
               {siteConfig.ctas.readiness.label}
             </Button>
           </a>

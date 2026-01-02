@@ -4,6 +4,9 @@ import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "./Button";
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Select } from "@/components/ui/select";
 
 interface ContactFormProps {
   contactEndpoint?: string;
@@ -135,71 +138,57 @@ export function ContactForm({
       <input type="hidden" name="intent" value={selectedTopic} />
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
-          <label htmlFor="name" className="text-sm font-medium text-text-primary">
+          <label htmlFor="name" className="text-sm font-semibold text-text-primary">
             Name
           </label>
-          <input
+          <Input
             id="name"
             name="name"
-            type="text"
+            placeholder="Jane Doe"
             required
             disabled={status === "submitting"}
-            className="w-full rounded-sm border border-border-default bg-bg-surface px-3 py-2 text-sm text-text-primary placeholder:text-text-tertiary focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary disabled:opacity-50"
-            placeholder="Jane Doe"
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="email" className="text-sm font-medium text-text-primary">
+          <label htmlFor="email" className="text-sm font-semibold text-text-primary">
             Work Email
           </label>
-          <input
+          <Input
             id="email"
             name="email"
             type="email"
-            required
-             disabled={status === "submitting"}
-            className="w-full rounded-sm border border-border-default bg-bg-surface px-3 py-2 text-sm text-text-primary placeholder:text-text-tertiary focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary disabled:opacity-50"
             placeholder="jane@company.com"
+            required
+            disabled={status === "submitting"}
           />
         </div>
       </div>
       
       <div className="space-y-2">
-          <label htmlFor="topic" className="text-sm font-medium text-text-primary">
+          <label htmlFor="topic" className="text-sm font-semibold text-text-primary">
             Topic
           </label>
-          <div className="relative">
-             <select
-                id="topic"
-                name="topic"
-                 disabled={status === "submitting"}
-                className="w-full appearance-none rounded-sm border border-border-default bg-bg-surface px-3 py-2 text-sm text-text-primary focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary disabled:opacity-50"
-                defaultValue={selectedTopic}
-             >
-                <option value="readiness">AI Readiness Call</option>
-                <option value="architecture">Architecture Review</option>
-                <option value="other">Other Inquiry</option>
-             </select>
-             {/* Chevron */}
-             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-text-secondary">
-               <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                 <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-               </svg>
-             </div>
-          </div>
+          <Select
+            id="topic"
+            name="topic"
+            defaultValue={selectedTopic}
+            disabled={status === "submitting"}
+          >
+            <option value="readiness">AI Readiness Call</option>
+            <option value="architecture">Architecture Review</option>
+            <option value="other">Other Inquiry</option>
+          </Select>
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="message" className="text-sm font-medium text-text-primary">
+        <label htmlFor="message" className="text-sm font-semibold text-text-primary">
           Message
         </label>
-        <textarea
+        <Textarea
           id="message"
           name="message"
           required
-          rows={5}
-           disabled={status === "submitting"}
-          className="w-full rounded-sm border border-border-default bg-bg-surface px-3 py-2 text-sm text-text-primary placeholder:text-text-tertiary focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary resize-y disabled:opacity-50"
+          disabled={status === "submitting"}
           placeholder="Tell us about your infrastructure..."
         />
       </div>

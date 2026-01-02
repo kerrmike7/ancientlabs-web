@@ -5,7 +5,6 @@ import { Section } from "@/components/Section";
 import { CTABand } from "@/components/CTABand";
 import { ExternalLink } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
-import { runtimeConfig } from "@/lib/runtimeConfig";
 import { siteCopy } from "@/content/siteCopy";
 import { getAllEssays } from "@/lib/essays";
 

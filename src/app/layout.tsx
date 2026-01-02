@@ -4,7 +4,6 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/siteConfig";
-import { runtimeConfig } from "@/lib/runtimeConfig";
 
 const ogImageUrl = `${siteConfig.url}/opengraph-image`;
 
@@ -62,9 +61,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <Header
-          contactHref={siteConfig.ctas.architecture.href}
-        />
+        <Header contactHref={siteConfig.ctas.architecture.href} />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />
       </body>

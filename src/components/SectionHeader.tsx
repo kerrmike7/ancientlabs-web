@@ -18,23 +18,23 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "space-y-3",
+        "space-y-4",
         align === "center" && "mx-auto text-center",
         className
       )}
     >
       {eyebrow && (
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-secondary">
+        <p className="text-label">
           {eyebrow}
         </p>
       )}
-      <h2 className="text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
+      <h2 className="text-subheading text-text-primary text-balance">
         {title}
       </h2>
       {description && (
         <p
           className={cn(
-            "text-lg text-text-secondary",
+            "text-lg leading-relaxed text-text-secondary",
             align === "center" ? "mx-auto max-w-2xl" : "max-w-2xl"
           )}
         >

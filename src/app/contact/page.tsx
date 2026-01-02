@@ -6,6 +6,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { Mail, Calendar } from "lucide-react";
 import { siteConfig, CALENDLY_URL } from "@/siteConfig";
 import { runtimeConfig } from "@/lib/runtimeConfig";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -31,9 +32,11 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-24">
           {/* Left Column: Info */}
-          <div>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">Let&apos;s talk infrastructure.</h1>
-            <p className="text-xl text-text-secondary mb-12">
+          <Reveal>
+            <h1 className="text-display text-text-primary text-balance mb-6">
+              Let&apos;s talk infrastructure.
+            </h1>
+            <p className="text-lg leading-relaxed text-text-secondary mb-12">
                Ready to move beyond the hype? Tell us about your data challenges.
             </p>
             
@@ -69,10 +72,10 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
                     </div>
                 </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right Column: Form */}
-          <div>
+          <Reveal>
             <div id="contact-form" className="-mt-24 pt-24" aria-hidden="true" />
             <div className="rounded-lg border border-border-default bg-bg-default p-6 sm:p-8 shadow-sm">
               <Suspense fallback={<div className="text-text-secondary">Loading form...</div>}>
@@ -84,7 +87,7 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
                 />
               </Suspense>
             </div>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </Section>

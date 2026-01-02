@@ -4,8 +4,8 @@ import { Section } from "@/components/Section";
 import { CTABand } from "@/components/CTABand";
 import { SectionHeader } from "@/components/SectionHeader";
 import Link from "next/link";
-import { runtimeConfig } from "@/lib/runtimeConfig";
 import { siteCopy } from "@/content/siteCopy";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "About Ancient Labs",
@@ -19,22 +19,24 @@ export default function AboutPage() {
     <>
       <Section className="pb-12">
         <Container>
-          <SectionHeader
-            eyebrow={about.hero.eyebrow}
-            title={about.hero.title}
-            description={about.hero.description}
-          />
+          <Reveal>
+            <SectionHeader
+              eyebrow={about.hero.eyebrow}
+              title={about.hero.title}
+              description={about.hero.description}
+            />
+          </Reveal>
         </Container>
       </Section>
 
       <Section className="pt-0">
         <Container className="max-w-3xl space-y-8">
-          <div className="space-y-6 text-lg leading-relaxed text-text-secondary">
+          <Reveal className="space-y-6 text-lg leading-relaxed text-text-secondary">
             <p>{about.intro}</p>
-          </div>
+          </Reveal>
 
           {about.sections.map((section, sectionIndex) => (
-            <div key={sectionIndex} className="space-y-4">
+            <Reveal key={sectionIndex} className="space-y-4">
               <h3 className="text-2xl font-semibold text-text-primary mt-8 first:mt-0">
                 {section.heading}
               </h3>
@@ -53,18 +55,19 @@ export default function AboutPage() {
                   <p className="font-medium text-text-primary">{section.closing}</p>
                 )}
               </div>
-            </div>
+            </Reveal>
           ))}
 
-          <div className="border-l-4 border-accent-primary bg-bg-subtle/60 px-6 py-4">
+          <Reveal className="border-l-4 border-accent-primary bg-bg-subtle/60 px-6 py-4">
             <blockquote className="text-xl font-medium text-text-primary italic">
               &quot;{about.quote}&quot;
             </blockquote>
-          </div>
+          </Reveal>
         </Container>
       </Section>
-       <Section className="bg-bg-subtle">
+      <Section className="bg-bg-subtle">
         <Container>
+          <Reveal>
             <SectionHeader
               eyebrow={about.nextSteps.eyebrow}
               title={about.nextSteps.title}
@@ -72,15 +75,22 @@ export default function AboutPage() {
               className="mb-6"
             />
             <div className="flex gap-4">
-                 <Link href={about.nextSteps.links[0].href} className="text-accent-primary font-medium hover:underline underline-offset-4">
-                    {about.nextSteps.links[0].label} &rarr;
-                </Link>
-                 <Link href={about.nextSteps.links[1].href} className="text-accent-primary font-medium hover:underline underline-offset-4">
-                    {about.nextSteps.links[1].label} &rarr;
-                </Link>
+              <Link
+                href={about.nextSteps.links[0].href}
+                className="text-accent-primary font-medium hover:underline underline-offset-4"
+              >
+                {about.nextSteps.links[0].label} &rarr;
+              </Link>
+              <Link
+                href={about.nextSteps.links[1].href}
+                className="text-accent-primary font-medium hover:underline underline-offset-4"
+              >
+                {about.nextSteps.links[1].label} &rarr;
+              </Link>
             </div>
+          </Reveal>
         </Container>
-       </Section>
+      </Section>
 
       <CTABand
         headline={about.ctaBand.headline}

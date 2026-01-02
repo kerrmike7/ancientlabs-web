@@ -3,10 +3,15 @@ import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { CTABand } from "@/components/CTABand";
 import { FastTrustBlock } from "@/components/FastTrustBlock";
-import { Card } from "@/components/Card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/Card";
+import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ArrowRightLeft, ScrollText, BarChart3 } from "lucide-react";
-import { runtimeConfig } from "@/lib/runtimeConfig";
 import { siteCopy } from "@/content/siteCopy";
 
 export const metadata: Metadata = {
@@ -22,11 +27,13 @@ export default function PaymentsPage() {
     <>
       <Section className="pb-12">
         <Container className="max-w-4xl">
-          <SectionHeader
-            eyebrow={payments.hero.eyebrow}
-            title={payments.hero.title}
-            description={payments.hero.description}
-          />
+          <Reveal>
+            <SectionHeader
+              eyebrow={payments.hero.eyebrow}
+              title={payments.hero.title}
+              description={payments.hero.description}
+            />
+          </Reveal>
         </Container>
       </Section>
 
@@ -34,32 +41,31 @@ export default function PaymentsPage() {
 
       <Section>
         <Container>
-          <SectionHeader
-            eyebrow={payments.capabilities.eyebrow}
-            title={payments.capabilities.title}
-            description={payments.capabilities.description}
-            className="mb-12"
-          />
-          <div className="grid gap-8 md:grid-cols-3">
-            <Card
-              title={payments.capabilities.cards[0].title}
-              icon={<ArrowRightLeft className="h-6 w-6" />}
-            >
-              {payments.capabilities.cards[0].copy}
-            </Card>
-            <Card
-              title={payments.capabilities.cards[1].title}
-              icon={<ScrollText className="h-6 w-6" />}
-            >
-              {payments.capabilities.cards[1].copy}
-            </Card>
-            <Card
-              title={payments.capabilities.cards[2].title}
-              icon={<BarChart3 className="h-6 w-6" />}
-            >
-              {payments.capabilities.cards[2].copy}
-            </Card>
-          </div>
+          <Reveal>
+            <SectionHeader
+              eyebrow={payments.capabilities.eyebrow}
+              title={payments.capabilities.title}
+              description={payments.capabilities.description}
+              className="mb-12"
+            />
+          </Reveal>
+          <Reveal className="grid gap-8 md:grid-cols-3">
+            {[
+              { icon: ArrowRightLeft, copy: payments.capabilities.cards[0] },
+              { icon: ScrollText, copy: payments.capabilities.cards[1] },
+              { icon: BarChart3, copy: payments.capabilities.cards[2] },
+            ].map(({ icon: Icon, copy }) => (
+              <Card key={copy.title}>
+                <CardHeader className="flex flex-col gap-4">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent-subtle text-accent-primary">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <CardTitle>{copy.title}</CardTitle>
+                </CardHeader>
+                <CardContent>{copy.copy}</CardContent>
+              </Card>
+            ))}
+          </Reveal>
         </Container>
       </Section>
       <CTABand

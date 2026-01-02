@@ -1,20 +1,25 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import { siteConfig } from "@/siteConfig";
 import { Button } from "@/components/Button";
 import { Section } from "@/components/Section";
 import { FastTrustBlock } from "@/components/FastTrustBlock";
 import { CTABand } from "@/components/CTABand";
-import { Card } from "@/components/Card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/Card";
+import { Reveal } from "@/components/Reveal";
 import {
   Database,
   CreditCard,
   LayoutTemplate,
+  ArrowUpRight,
 } from "lucide-react";
 import { Badge } from "@/components/Badge";
 import { SectionHeader } from "@/components/SectionHeader";
-import { runtimeConfig } from "@/lib/runtimeConfig";
 import { Logo } from "@/components/Logo";
 import { siteCopy } from "@/content/siteCopy";
 
@@ -28,14 +33,24 @@ export default function Home() {
   const { home } = siteCopy;
   const contactHref = siteConfig.ctas.architecture.href;
   const readinessHref = siteConfig.ctas.readiness.href;
+  const proofLinks = [
+    {
+      title: "AI Readiness Scorecard",
+      href: "/scorecard",
+      description: "A tangible benchmark that shows if your data is ready for AI.",
+    },
+    {
+      title: "90-Day Use Case Blueprint",
+      href: "/blueprint",
+      description: "A deliverable that sequences discovery, data build, and launch.",
+    },
+  ];
 
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <Section className="pb-16 pt-24 md:pb-24 md:pt-32">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-          {/* Text Content */}
-          <div className="space-y-8">
+        <Reveal className="max-w-3xl space-y-8">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
               <Logo
@@ -48,10 +63,10 @@ export default function Home() {
             </div>
             <Badge>{home.hero.badge}</Badge>
           </div>
-          <h1 className="text-4xl font-semibold tracking-tight text-text-primary sm:text-6xl">
+          <h1 className="text-display text-text-primary text-balance">
             {home.hero.headline}
           </h1>
-          <div className="space-y-3 text-xl text-text-secondary">
+          <div className="space-y-4 text-lg leading-relaxed text-text-secondary">
             {home.hero.subheadline.map((text, i) => (
               <p key={i}>{text}</p>
             ))}
@@ -66,7 +81,7 @@ export default function Home() {
           </ul>
           <div className="flex flex-col gap-4 sm:flex-row">
             <a href={readinessHref} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="primary">
+              <Button size="lg" variant="default">
                 {siteConfig.ctas.readiness.label}
               </Button>
             </a>
@@ -76,34 +91,13 @@ export default function Home() {
               </Button>
             </Link>
           </div>
-          </div>
-          
-          {/* Hero Image - Optional: Add /public/hero-dashboard.jpg when ready */}
-          <div className="relative w-full aspect-[4/3] lg:aspect-square bg-bg-subtle rounded-md border border-border-default flex items-center justify-center">
-            {/* Placeholder - remove this div when image is added */}
-            <div className="text-center p-8 text-text-tertiary text-sm">
-              <p className="mb-2">Hero image placeholder</p>
-              <p className="text-xs">Add /public/hero-dashboard.jpg</p>
-            </div>
-            {/* Uncomment when image is ready:
-            <Image
-              src="/hero-dashboard.jpg"
-              alt="Production data systems and analytics infrastructure"
-              fill
-              className="object-cover rounded-md opacity-90"
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              style={{
-                filter: "grayscale(0.3) contrast(0.95) brightness(0.98)",
-              }}
-            />
-            */}
-          </div>
-        </div>
+        </Reveal>
       </Section>
 
       {/* Fast Trust Block */}
-      <FastTrustBlock items={home.trust.items} />
+      <Reveal>
+        <FastTrustBlock items={home.trust.items} />
+      </Reveal>
 
       {/* Value Prop Section */}
       <Section>
@@ -112,23 +106,43 @@ export default function Home() {
           title={home.valueProp.title}
           description={home.valueProp.description}
         />
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
-          <Card title={home.valueProp.cards[0].title} icon={<Database className="h-6 w-6" />}>
-            {home.valueProp.cards[0].copy}
-          </Card>
-          <Card
-            title={home.valueProp.cards[1].title}
-            icon={<CreditCard className="h-6 w-6" />}
-          >
-            {home.valueProp.cards[1].copy}
-          </Card>
-          <Card
-            title={home.valueProp.cards[2].title}
-            icon={<LayoutTemplate className="h-6 w-6" />}
-          >
-            {home.valueProp.cards[2].copy}
-          </Card>
-        </div>
+        <Reveal className="mt-12 grid gap-8 md:grid-cols-3">
+          {[Database, CreditCard, LayoutTemplate].map((Icon, index) => (
+            <Card key={home.valueProp.cards[index].title}>
+              <CardHeader className="flex flex-col gap-4">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent-subtle text-accent-primary">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <CardTitle>{home.valueProp.cards[index].title}</CardTitle>
+              </CardHeader>
+              <CardContent>{home.valueProp.cards[index].copy}</CardContent>
+            </Card>
+          ))}
+        </Reveal>
+        <Reveal className="mt-10 grid gap-6 lg:grid-cols-2">
+          {proofLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="group rounded-2xl border border-border-default/80 bg-bg-default/90 p-6 shadow-sm transition-colors hover:border-border-default"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-label mb-2">Proof Object</p>
+                  <h3 className="text-xl font-semibold text-text-primary">
+                    {link.title}
+                  </h3>
+                </div>
+                <span className="text-text-secondary transition group-hover:text-accent-primary">
+                  <ArrowUpRight className="h-5 w-5" />
+                </span>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-text-secondary">
+                {link.description}
+              </p>
+            </Link>
+          ))}
+        </Reveal>
       </Section>
 
       {/* CTA Band */}

@@ -5,7 +5,7 @@ import { CTABand } from "@/components/CTABand";
 import { Timeline } from "@/components/Timeline";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ShieldCheck, Zap, Lock } from "lucide-react";
-import { runtimeConfig } from "@/lib/runtimeConfig";
+import { Reveal } from "@/components/Reveal";
 import { siteCopy } from "@/content/siteCopy";
 
 export const metadata: Metadata = {
@@ -21,45 +21,47 @@ export default function ProcessPage() {
     <>
       <Section className="pb-12">
         <Container>
-          <SectionHeader
-            eyebrow={process.hero.eyebrow}
-            title={process.hero.title}
-            description={process.hero.description}
-          />
+          <Reveal>
+            <SectionHeader
+              eyebrow={process.hero.eyebrow}
+              title={process.hero.title}
+              description={process.hero.description}
+            />
+          </Reveal>
         </Container>
       </Section>
 
       <Section className="pt-0">
         <Container>
+          <Reveal>
             <Timeline steps={process.steps} />
+          </Reveal>
         </Container>
       </Section>
 
       <Section className="bg-bg-subtle">
         <Container>
-          <SectionHeader
-            eyebrow={process.principles.eyebrow}
-            title={process.principles.title}
-            description={process.principles.description}
-            className="mb-12"
-          />
+          <Reveal>
+            <SectionHeader
+              eyebrow={process.principles.eyebrow}
+              title={process.principles.title}
+              description={process.principles.description}
+              className="mb-12"
+            />
             <div className="grid gap-8 md:grid-cols-3">
-                 <div className="flex flex-col gap-3">
-                    <ShieldCheck className="h-8 w-8 text-text-primary" />
-                    <h4 className="font-bold text-text-primary">{process.principles.items[0].title}</h4>
-                    <p className="text-text-secondary">{process.principles.items[0].copy}</p>
+              {[ShieldCheck, Zap, Lock].map((Icon, index) => (
+                <div key={index} className="flex flex-col gap-3">
+                  <Icon className="h-8 w-8 text-text-primary" />
+                  <h4 className="font-bold text-text-primary">
+                    {process.principles.items[index].title}
+                  </h4>
+                  <p className="text-text-secondary">
+                    {process.principles.items[index].copy}
+                  </p>
                 </div>
-                 <div className="flex flex-col gap-3">
-                    <Zap className="h-8 w-8 text-text-primary" />
-                    <h4 className="font-bold text-text-primary">{process.principles.items[1].title}</h4>
-                    <p className="text-text-secondary">{process.principles.items[1].copy}</p>
-                </div>
-                 <div className="flex flex-col gap-3">
-                    <Lock className="h-8 w-8 text-text-primary" />
-                    <h4 className="font-bold text-text-primary">{process.principles.items[2].title}</h4>
-                    <p className="text-text-secondary">{process.principles.items[2].copy}</p>
-                </div>
+              ))}
             </div>
+          </Reveal>
         </Container>
       </Section>
       <CTABand />

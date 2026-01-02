@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { CTABand } from "@/components/CTABand";
-import { runtimeConfig } from "@/lib/runtimeConfig";
 import { getEssayBySlug, getAllEssays } from "@/lib/essays";
 
 interface EssayPageProps {
@@ -87,7 +86,7 @@ export default async function EssayPage({ params }: EssayPageProps) {
                   </div>
                 )}
               </div>
-              <h1 className="text-4xl font-semibold tracking-tight text-text-primary sm:text-5xl mb-6">
+              <h1 className="text-display text-text-primary text-balance mb-6">
                 {essay.title}
               </h1>
               <p className="text-xl text-text-secondary">{essay.summary}</p>

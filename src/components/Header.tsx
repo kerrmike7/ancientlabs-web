@@ -92,7 +92,7 @@ export function Header({ contactHref }: HeaderProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="primary" size="sm">
+              <Button variant="default" size="sm">
                 {siteConfig.ctas.readiness.label}
               </Button>
             </a>
@@ -151,13 +151,12 @@ export function Header({ contactHref }: HeaderProps) {
                   rel="noopener noreferrer"
                   onClick={handleCloseMenu}
                 >
-                  <Button size="md" className="w-full">
+                  <Button variant="default" className="w-full">
                     {siteConfig.ctas.readiness.label}
                   </Button>
                 </a>
                 <Link href={secondaryHref} onClick={handleCloseMenu}>
                   <Button
-                    size="md"
                     variant="secondary"
                     className="w-full border border-border-default/80 bg-white text-text-primary"
                   >
