@@ -13,7 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const { calendlyUrl, contactEndpoint, web3FormsKey } = runtimeConfig;
+  const { calendlyUrl, calendlyUrls, contactEndpoint, web3FormsKey } = runtimeConfig;
+  const readinessUrl = calendlyUrls.readiness;
 
   return (
     <Section className="py-12 md:py-24">
@@ -49,7 +50,7 @@ export default function ContactPage() {
                          <p className="text-text-secondary mb-2">Skip the back-and-forth.</p>
                          {calendlyUrl ? (
                           <a
-                            href={calendlyUrl}
+                            href={readinessUrl}
                             className="text-accent-primary font-medium hover:underline block"
                           >
                             {siteConfig.ctas.readiness.label} &rarr;

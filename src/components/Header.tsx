@@ -11,12 +11,18 @@ import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 
 interface HeaderProps {
-  calendlyUrl?: string;
+  calendlyLinks?: {
+    readiness?: string;
+    architecture?: string;
+  };
 }
 
-export function Header({ calendlyUrl }: HeaderProps) {
+export function Header({ calendlyLinks }: HeaderProps) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const readinessUrl = calendlyLinks?.readiness ?? "";
+  const architectureUrl = calendlyLinks?.architecture ?? "";
+  const isCalendlyConfigured = Boolean(readinessUrl);
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
@@ -28,7 +34,11 @@ export function Header({ calendlyUrl }: HeaderProps) {
   const navItems = siteConfig.nav;
   const handleCloseMenu = () => setIsMenuOpen(false);
 
-  const renderNavLink = (href: string, label: string, isMobile = false) => {
+  const renderNavLink = (
+    href: string,
+    label: string,
+    isMobile = false
+  ) => {
     const isActive =
       pathname === href ||
       (href !== "/" && pathname?.startsWith(`${href}/`));
@@ -39,8 +49,15 @@ export function Header({ calendlyUrl }: HeaderProps) {
         href={href}
         className={cn(
           "text-sm font-medium transition-colors",
-          isMobile ? "text-lg" : "",
-          isActive ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+          isMobile
+            ? cn(
+                "rounded-md border border-transparent px-4 py-3 text-base tracking-tight",
+                "text-text-primary/90 hover:border-border-default hover:bg-bg-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2"
+              )
+            : "",
+          isActive
+            ? "text-text-primary"
+            : "text-text-secondary hover:text-text-primary"
         )}
         onClick={isMobile ? handleCloseMenu : undefined}
       >
@@ -69,8 +86,8 @@ export function Header({ calendlyUrl }: HeaderProps) {
           {navItems.map((item) => renderNavLink(item.href, item.label))}
         </nav>
         <div className="flex items-center gap-3">
-          {calendlyUrl ? (
-            <Link href={calendlyUrl} className="hidden md:inline-flex">
+          {isCalendlyConfigured ? (
+            <Link href={readinessUrl} className="hidden md:inline-flex">
               <Button variant="secondary" size="sm">
                 {siteConfig.ctas.readiness.label}
               </Button>
@@ -105,7 +122,7 @@ export function Header({ calendlyUrl }: HeaderProps) {
           onClick={handleCloseMenu}
         >
           <div
-            className="ml-auto flex h-full w-[85%] max-w-xs flex-col border-l border-border-default bg-bg-default p-6"
+            className="ml-auto flex h-full w-[85%] max-w-xs flex-col border-l border-border-default bg-bg-default p-6 shadow-xl"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-center justify-between">
@@ -121,33 +138,51 @@ export function Header({ calendlyUrl }: HeaderProps) {
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <nav className="mt-8 flex flex-col gap-4">
+            <nav className="mt-8 flex flex-col gap-2">
               {navItems.map((item) => renderNavLink(item.href, item.label, true))}
               <Link
                 href="/contact"
-                className="text-sm font-medium text-text-secondary transition-colors hover:text-text-primary"
+                className="rounded-md border border-transparent px-4 py-3 text-base font-medium text-text-secondary transition-colors hover:border-border-default hover:bg-bg-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2"
                 onClick={handleCloseMenu}
               >
                 Contact
               </Link>
             </nav>
-            <div className="mt-auto flex flex-col gap-3">
-              {calendlyUrl ? (
-                <Link href={calendlyUrl}>
-                  <Button size="md" className="w-full">
+            <div className="mt-8 border-t border-border-default pt-6">
+              <div className="flex flex-col gap-3">
+                {isCalendlyConfigured ? (
+                  <Link href={readinessUrl} onClick={handleCloseMenu}>
+                    <Button size="md" className="w-full">
+                      {siteConfig.ctas.readiness.label}
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button size="md" disabled className="w-full" title="Calendly not configured">
                     {siteConfig.ctas.readiness.label}
                   </Button>
-                </Link>
-              ) : (
-                <Button size="md" disabled className="w-full">
-                  {siteConfig.ctas.readiness.label}
-                </Button>
-              )}
-              <Link href={siteConfig.ctas.architecture.href}>
-                <Button size="md" variant="secondary" className="w-full">
-                  {siteConfig.ctas.architecture.label}
-                </Button>
-              </Link>
+                )}
+                {architectureUrl ? (
+                  <Link href={architectureUrl} onClick={handleCloseMenu}>
+                    <Button
+                      size="md"
+                      variant="secondary"
+                      className="w-full border-2 border-border-default/80"
+                    >
+                      {siteConfig.ctas.architecture.label}
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button
+                    size="md"
+                    variant="secondary"
+                    disabled
+                    className="w-full"
+                    title="Calendly not configured"
+                  >
+                    {siteConfig.ctas.architecture.label}
+                  </Button>
+                )}
+              </div>
             </div>
           </div>
         </div>

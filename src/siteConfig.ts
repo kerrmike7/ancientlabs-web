@@ -23,7 +23,6 @@ export const siteConfig = {
     },
     architecture: {
       label: "Request Architecture Review",
-      href: "/contact#architecture-review",
     },
   },
 };

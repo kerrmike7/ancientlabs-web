@@ -8,16 +8,20 @@ interface CTABandProps {
   eyebrow?: string;
   headline?: string;
   description?: string;
-  calendlyUrl?: string;
+  calendlyLinks?: {
+    readiness?: string;
+    architecture?: string;
+  };
 }
 
 export function CTABand({
   eyebrow,
   headline = "Ready to build your data foundation?",
   description,
-  calendlyUrl,
+  calendlyLinks,
 }: CTABandProps) {
-  const readinessUrl = calendlyUrl ?? "";
+  const readinessUrl = calendlyLinks?.readiness ?? "";
+  const architectureUrl = calendlyLinks?.architecture ?? "";
 
   return (
     <Section className="border-y border-border-default bg-bg-subtle">
@@ -52,11 +56,22 @@ export function CTABand({
               {siteConfig.ctas.readiness.label}
             </Button>
           )}
-          <Link href={siteConfig.ctas.architecture.href}>
-            <Button size="lg" variant="secondary">
+          {architectureUrl ? (
+            <Link href={architectureUrl}>
+              <Button size="lg" variant="secondary">
+                {siteConfig.ctas.architecture.label}
+              </Button>
+            </Link>
+          ) : (
+            <Button
+              size="lg"
+              variant="secondary"
+              disabled
+              title="Calendly not configured"
+            >
               {siteConfig.ctas.architecture.label}
             </Button>
-          </Link>
+          )}
         </div>
       </Container>
     </Section>
