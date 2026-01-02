@@ -8,15 +8,14 @@ export const siteCopy = {
   home: {
     hero: {
       badge: "Mid-Market Data & AI Studio",
-      headline: "AI-Ready Data Foundations for the Mid-Market.",
+      headline: "AI didn't fail you. Your data wasn't ready.",
       subheadline: [
-        "We build stack-agnostic data systems that preserve optionality and avoid vendor lock-in—especially when data and money move together.",
-        "No chatbots, no generic consulting—just shipped infrastructure.",
+        "Ancient Labs helps teams fix fragmented data and ship one reliable, ROI-positive AI use case in 90 days — without rebuilding their entire stack.",
       ],
       bullets: [
-        "Stack-agnostic data systems that preserve optionality.",
-        "Payments-grade reliability across reconciliation and ledgers.",
-        "Code shipped to your repo in 2-week sprints.",
+        "Fragmented data across silos prevents AI from accessing the context it needs.",
+        "Missing ownership and lineage means AI outputs can't be trusted or audited.",
+        "AI pilots fail to harden into production systems because the data foundation isn't reliable.",
       ],
     },
     trust: {
@@ -28,8 +27,8 @@ export const siteCopy = {
     },
     valueProp: {
       eyebrow: "What we do",
-      title: "Systems, not advice.",
-      description: "Clear scope, shared repos, and infrastructure that your team can scale.",
+      title: "AI data readiness, not generic AI consulting.",
+      description: "We fix your data foundation so you can ship one reliable, ROI-positive AI use case in 90 days. Narrow scope. Clear outcomes.",
       cards: [
         {
           title: "AI Foundations",
@@ -65,7 +64,7 @@ export const siteCopy = {
       ],
     },
     ctaBand: {
-      headline: "Stop guessing. Start building.",
+      headline: "Stop guessing. Fix the foundations.",
     },
   },
 

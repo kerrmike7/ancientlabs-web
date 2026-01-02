@@ -10,7 +10,6 @@ import {
   Database,
   CreditCard,
   LayoutTemplate,
-  XCircle,
 } from "lucide-react";
 import { Badge } from "@/components/Badge";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -104,26 +103,6 @@ export default function Home() {
           >
             {home.valueProp.cards[2].copy}
           </Card>
-        </div>
-      </Section>
-
-      {/* Anti-Positioning Section */}
-      <Section className="bg-bg-subtle">
-        <SectionHeader
-          eyebrow={home.notAFit.eyebrow}
-          title={home.notAFit.title}
-          description={home.notAFit.description}
-        />
-        <div className="mt-12 space-y-6">
-          {home.notAFit.items.map((item) => (
-            <div key={item.title} className="flex gap-4">
-              <XCircle className="h-6 w-6 shrink-0 text-text-tertiary" />
-              <div>
-                <h4 className="font-semibold text-text-primary">{item.title}</h4>
-                <p className="text-text-secondary">{item.copy}</p>
-              </div>
-            </div>
-          ))}
         </div>
       </Section>
 
