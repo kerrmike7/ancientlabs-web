@@ -17,7 +17,7 @@ export function Logo({
       viewBox="0 0 64 64"
       role="img"
       aria-label={ariaLabel}
-      className={cn("block", className)}
+      className={cn("block text-text-primary fill-current", className)}
       {...props}
     >
       <rect x="16" y="12" width="6" height="40" rx="1" fill="currentColor" />
