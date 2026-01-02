@@ -60,8 +60,8 @@ export default function PrivacyPage() {
           <h2 className="text-2xl font-semibold text-text-primary">Contact Us</h2>
           <p>
             If you have any questions about this Privacy Policy, please contact us at{" "}
-            <a href="mailto:hello@ancientlabs.co" className="text-accent-primary underline">
-              hello@ancientlabs.co
+            <a href="mailto:michael@ancientlabs.co" className="text-accent-primary underline">
+              michael@ancientlabs.co
             </a>
             .
           </p>

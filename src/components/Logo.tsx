@@ -12,17 +12,18 @@ export function Logo({
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="64"
-      height="64"
-      viewBox="0 0 64 64"
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
       role="img"
       aria-label={ariaLabel}
       className={cn("block", className)}
       {...props}
     >
-      <rect x="16" y="12" width="6" height="40" rx="1" fill="currentColor" />
-      <rect x="29" y="12" width="6" height="40" rx="1" fill="currentColor" />
-      <rect x="42" y="12" width="6" height="40" rx="1" fill="currentColor" />
+      <rect x="4" y="6" width="4" height="20" rx="1" fill="currentColor" />
+      <rect x="14" y="6" width="4" height="20" rx="1" fill="currentColor" />
+      <rect x="24" y="6" width="4" height="20" rx="1" fill="currentColor" />
+      <rect x="4" y="4" width="24" height="2" rx="1" fill="currentColor" />
     </svg>
   );
 }

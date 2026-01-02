@@ -9,7 +9,7 @@ import { runtimeConfig } from "@/lib/runtimeConfig";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Let’s talk infrastructure—email hello@ancientlabs.co or send a message through the Web3Forms-powered contact form.",
+    "Let’s talk infrastructure—email michael@ancientlabs.co or send a message through the Web3Forms-powered contact form.",
 };
 
 interface ContactPageProps {
@@ -46,7 +46,7 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
                     <div>
                         <h3 className="font-semibold text-text-primary mb-1">Email Us</h3>
                          <p className="text-text-secondary mb-2">For general inquiries.</p>
-                         <a href="mailto:hello@ancientlabs.co" className="text-accent-primary font-medium hover:underline">hello@ancientlabs.co</a>
+                        <a href="mailto:michael@ancientlabs.co" className="text-accent-primary font-medium hover:underline">michael@ancientlabs.co</a>
                     </div>
                 </div>
 
@@ -77,7 +77,7 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
             <ContactForm
               contactEndpoint={contactEndpoint}
               accessKey={web3FormsKey}
-              fallbackEmail="hello@ancientlabs.co"
+              fallbackEmail="michael@ancientlabs.co"
               defaultIntent={defaultIntent}
             />
             </div>

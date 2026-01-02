@@ -14,7 +14,7 @@ interface ContactFormProps {
 export function ContactForm({
   contactEndpoint,
   accessKey,
-  fallbackEmail = "hello@ancientlabs.co",
+  fallbackEmail = "michael@ancientlabs.co",
   defaultIntent = "readiness",
 }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
