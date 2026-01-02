@@ -17,12 +17,12 @@ export interface PersonaFrontmatter {
 
 interface PersonaTemplateProps {
   frontmatter: PersonaFrontmatter;
-  children: React.ReactNode;
+  contentHtml: string;
 }
 
 export function PersonaTemplate({
   frontmatter,
-  children,
+  contentHtml,
 }: PersonaTemplateProps) {
   const primaryHref =
     frontmatter.ctaPrimaryHref === "CALENDLY"
@@ -43,9 +43,10 @@ export function PersonaTemplate({
       </Section>
       <Section className="pt-0">
         <Reveal>
-          <div className="persona-content mx-auto max-w-3xl space-y-8 text-lg leading-relaxed text-text-secondary">
-            {children}
-          </div>
+          <div
+            className="mx-auto max-w-3xl space-y-8 text-lg leading-relaxed text-text-secondary"
+            dangerouslySetInnerHTML={{ __html: contentHtml }}
+          />
         </Reveal>
       </Section>
       <Section className="pt-0">

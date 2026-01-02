@@ -1,22 +1,29 @@
 import type { Metadata } from "next";
-import PersonaContent from "@content/personas/ecommerce.mdx";
-import {
-  PersonaTemplate,
-  type PersonaFrontmatter,
-} from "@/components/PersonaTemplate";
-import { getPersonaFrontmatter } from "@/lib/personas";
+import { PersonaTemplate } from "@/components/PersonaTemplate";
+import { getPersonaBySlug } from "@/lib/personas";
+import { notFound } from "next/navigation";
 
-const personaMeta = getPersonaFrontmatter("ecommerce") as PersonaFrontmatter;
+export async function generateMetadata(): Promise<Metadata> {
+  const persona = await getPersonaBySlug("ecommerce");
+  if (!persona) {
+    return {};
+  }
+  return {
+    title: `${persona.frontmatter.title} | Ancient Labs`,
+    description: persona.frontmatter.description,
+  };
+}
 
-export const metadata: Metadata = {
-  title: `${personaMeta.title} | Ancient Labs`,
-  description: personaMeta.description,
-};
+export default async function EcommercePage() {
+  const persona = await getPersonaBySlug("ecommerce");
+  if (!persona) {
+    notFound();
+  }
 
-export default function EcommercePage() {
   return (
-    <PersonaTemplate frontmatter={personaMeta}>
-      <PersonaContent />
-    </PersonaTemplate>
+    <PersonaTemplate
+      frontmatter={persona.frontmatter}
+      contentHtml={persona.contentHtml}
+    />
   );
 }
