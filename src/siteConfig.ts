@@ -1,3 +1,6 @@
+// External Calendly URL constant
+export const CALENDLY_URL = "https://calendly.com/michael-ancientlabs/30min";
+
 export const siteConfig = {
   name: "Ancient Labs",
   description: "Mid-Market Data & AI Studio",
@@ -19,10 +22,11 @@ export const siteConfig = {
   ctas: {
     readiness: {
       label: "Book AI Readiness Call",
+      href: CALENDLY_URL,
     },
     architecture: {
       label: "Request Architecture Review",
-      href: "/contact#contact-form",
+      href: "/contact?topic=architecture#contact-form",
     },
   },
 };

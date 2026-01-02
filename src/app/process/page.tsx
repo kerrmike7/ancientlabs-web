@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 };
 
 export default function ProcessPage() {
-  const { calendlyUrl } = runtimeConfig;
   const { process } = siteCopy;
 
   return (
@@ -63,7 +62,7 @@ export default function ProcessPage() {
             </div>
         </Container>
       </Section>
-      <CTABand calendlyUrl={calendlyUrl} />
+      <CTABand />
     </>
   );
 }

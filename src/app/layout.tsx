@@ -63,7 +63,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <Header
-          calendlyUrl={runtimeConfig.calendlyUrl}
           contactHref={siteConfig.ctas.architecture.href}
         />
         <main className="flex-1 flex flex-col">{children}</main>

@@ -1,30 +1,29 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { ContactForm } from "@/components/ContactForm";
 import { Mail, Calendar } from "lucide-react";
-import { siteConfig } from "@/siteConfig";
+import { siteConfig, CALENDLY_URL } from "@/siteConfig";
 import { runtimeConfig } from "@/lib/runtimeConfig";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Let’s talk infrastructure—email michael@ancientlabs.co or send a message through the Web3Forms-powered contact form.",
+    "Let's talk infrastructure—email michael@ancientlabs.co or send a message through the Web3Forms-powered contact form.",
 };
 
 interface ContactPageProps {
   searchParams?: {
-    intent?: string;
+    topic?: string;
   };
 }
 
 export default function ContactPage({ searchParams }: ContactPageProps) {
-  const { calendlyUrl, contactEndpoint, web3FormsKey } = runtimeConfig;
-  const contactHref = siteConfig.ctas.architecture.href;
-  const readinessHref = calendlyUrl || contactHref;
-  const defaultIntent =
-    typeof searchParams?.intent === "string" && searchParams.intent.trim().length > 0
-      ? searchParams.intent
+  const { contactEndpoint, web3FormsKey } = runtimeConfig;
+  const defaultTopic =
+    typeof searchParams?.topic === "string" && searchParams.topic.trim().length > 0
+      ? searchParams.topic
       : "readiness";
 
   return (
@@ -60,7 +59,9 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
                         </h3>
                          <p className="text-text-secondary mb-2">Skip the back-and-forth.</p>
                         <a
-                          href={readinessHref}
+                          href={CALENDLY_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-accent-primary font-medium hover:underline block"
                         >
                           {siteConfig.ctas.readiness.label} &rarr;
@@ -74,12 +75,14 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
           <div>
             <div id="contact-form" className="-mt-24 pt-24" aria-hidden="true" />
             <div className="rounded-lg border border-border-default bg-bg-default p-6 sm:p-8 shadow-sm">
-            <ContactForm
-              contactEndpoint={contactEndpoint}
-              accessKey={web3FormsKey}
-              fallbackEmail="michael@ancientlabs.co"
-              defaultIntent={defaultIntent}
-            />
+              <Suspense fallback={<div className="text-text-secondary">Loading form...</div>}>
+                <ContactForm
+                  contactEndpoint={contactEndpoint}
+                  accessKey={web3FormsKey}
+                  fallbackEmail="michael@ancientlabs.co"
+                  defaultTopic={defaultTopic}
+                />
+              </Suspense>
             </div>
           </div>
         </div>

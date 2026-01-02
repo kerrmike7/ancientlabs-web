@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 };
 
 export default function InsightsPage() {
-  const { calendlyUrl } = runtimeConfig;
   const { insights } = siteCopy;
   const essays = getAllEssays();
 
@@ -104,7 +103,6 @@ export default function InsightsPage() {
       <CTABand
         headline={insights.ctaBand.headline}
         description={insights.ctaBand.description}
-        calendlyUrl={calendlyUrl}
       />
     </>
   );

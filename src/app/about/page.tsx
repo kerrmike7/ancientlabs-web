@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const { calendlyUrl } = runtimeConfig;
   const { about } = siteCopy;
   return (
     <>
@@ -86,7 +85,6 @@ export default function AboutPage() {
       <CTABand
         headline={about.ctaBand.headline}
         description={about.ctaBand.description}
-        calendlyUrl={calendlyUrl}
       />
     </>
   );

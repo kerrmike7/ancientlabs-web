@@ -8,7 +8,6 @@ interface CTABandProps {
   eyebrow?: string;
   headline?: string;
   description?: string;
-  calendlyUrl?: string;
   contactHref?: string;
 }
 
@@ -16,10 +15,8 @@ export function CTABand({
   eyebrow,
   headline = "Ready to build your data foundation?",
   description,
-  calendlyUrl,
   contactHref = siteConfig.ctas.architecture.href,
 }: CTABandProps) {
-  const primaryHref = calendlyUrl || contactHref;
   const secondaryHref = contactHref;
 
   return (
@@ -39,11 +36,15 @@ export function CTABand({
           )}
         </div>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link href={primaryHref}>
+          <a
+            href={siteConfig.ctas.readiness.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button size="lg" variant="primary">
               {siteConfig.ctas.readiness.label}
             </Button>
-          </Link>
+          </a>
           <Link href={secondaryHref}>
             <Button size="lg" variant="secondary">
               {siteConfig.ctas.architecture.label}
