@@ -188,3 +188,7 @@ small,
   background-color: transparent;
   padding: 0;
 }
+
+.persona-content > p:first-of-type {
+  display: none;
+}

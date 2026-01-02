@@ -42,8 +42,10 @@ export function PersonaTemplate({
         </Reveal>
       </Section>
       <Section className="pt-0">
-        <Reveal className="mx-auto max-w-3xl space-y-8 text-lg leading-relaxed text-text-secondary">
-          {children}
+        <Reveal>
+          <div className="persona-content mx-auto max-w-3xl space-y-8 text-lg leading-relaxed text-text-secondary">
+            {children}
+          </div>
         </Reveal>
       </Section>
       <Section className="pt-0">
