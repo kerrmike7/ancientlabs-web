@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { siteConfig } from "@/siteConfig";
 import { Button } from "@/components/Button";
@@ -32,7 +33,9 @@ export default function Home() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <Section className="pb-16 pt-24 md:pb-24 md:pt-32">
-        <div className="max-w-3xl space-y-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+          {/* Text Content */}
+          <div className="space-y-8">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
               <Logo
@@ -72,6 +75,29 @@ export default function Home() {
                 {siteConfig.ctas.architecture.label}
               </Button>
             </Link>
+          </div>
+          </div>
+          
+          {/* Hero Image - Optional: Add /public/hero-dashboard.jpg when ready */}
+          <div className="relative w-full aspect-[4/3] lg:aspect-square bg-bg-subtle rounded-md border border-border-default flex items-center justify-center">
+            {/* Placeholder - remove this div when image is added */}
+            <div className="text-center p-8 text-text-tertiary text-sm">
+              <p className="mb-2">Hero image placeholder</p>
+              <p className="text-xs">Add /public/hero-dashboard.jpg</p>
+            </div>
+            {/* Uncomment when image is ready:
+            <Image
+              src="/hero-dashboard.jpg"
+              alt="Production data systems and analytics infrastructure"
+              fill
+              className="object-cover rounded-md opacity-90"
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              style={{
+                filter: "grayscale(0.3) contrast(0.95) brightness(0.98)",
+              }}
+            />
+            */}
           </div>
         </div>
       </Section>
