@@ -20,9 +20,21 @@ export const siteCopy = {
     },
     trust: {
       items: [
-        { label: "Data before AI", value: "Reliable AI systems start with owned, well-modeled data. Tools, prompts, and models only work when the underlying data foundation is clear, consistent, and trusted." },
-        { label: "Narrow scope wins", value: "Most AI initiatives fail by trying to do too much at once. We focus on one outcome, one data surface, and one use case — until it works in production." },
-        { label: "Production over pilots", value: "If an AI system can't be measured, audited, and owned by your team, it isn't done. We build systems that survive real users, real data, and real accountability." },
+        {
+          label: "Data before AI",
+          value:
+            "Reliable AI starts with owned, well-modeled data. Tools, prompts, and models only work when the underlying data is clear, consistent, and trusted.",
+        },
+        {
+          label: "Narrow scope wins",
+          value:
+            "Most AI initiatives fail by trying to do too much. We focus on one outcome, one data surface, and one use case—until it works in production.",
+        },
+        {
+          label: "Production over pilots",
+          value:
+            "If it can’t be measured, audited, and owned, it isn’t done. We build AI systems that survive real users, real data, and real accountability.",
+        },
       ],
     },
     valueProp: {
